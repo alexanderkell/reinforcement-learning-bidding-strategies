@@ -21,9 +21,10 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{Jager2006a}
-W.~Jager, ``{Simulating consumer behaviour: a perspective},''
-  \emph{Environmental Policy and Modelling in Evolutionary Economics}, pp.
-  1--28, 2006.
+\bibitem{Kell2020}
+A.~J.~M. Kell, M.~Forshaw, and A.~S. McGough, ``{Long-Term Electricity Market
+  Agent Based Model Validation using Genetic Algorithm based Optimization},''
+  \emph{The Eleventh ACM International Conference on Future Energy Systems
+  (e-Energy'20)}, 2020.
 
 \end{thebibliography}
