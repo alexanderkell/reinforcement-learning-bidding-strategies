@@ -64,4 +64,12 @@ J.~Wang, Z.~Zhou, and A.~Botterud, ``{An evolutionary game approach to
   \url{http://dx.doi.org/10.1016/j.energy.2011.03.050}
 \BIBentrySTDinterwordspacing
 
+\bibitem{VijayaKumar2014}
+\BIBentryALTinterwordspacing
+J.~{Vijaya Kumar} and D.~M. Kumar, ``{Generation bidding strategy in a pool
+  based electricity market using Shuffled Frog Leaping Algorithm},''
+  \emph{Applied Soft Computing Journal}, vol.~21, pp. 407--414, 2014. [Online].
+  Available: \url{http://dx.doi.org/10.1016/j.asoc.2014.03.027}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

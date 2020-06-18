@@ -95,18 +95,11 @@ In Section \ref{sec:lit-review} we review the literature, and explore other appr
 
 %- Why the current approaches / systems don't solve the problem
 
-
 %- What is the innovation in this work
-
-
 
 %- A short description of the solution
 
-
-
 %- What are the key take-home messages
-
-
 
 % Contributions of this work
 
@@ -119,6 +112,25 @@ In Section \ref{sec:lit-review} we review the literature, and explore other appr
 
 \section{Literature Review}
 \label{sec:lit-review}
+
+Intelligent bidding strategies for day-ahead electricity markets can be divided into two broad categories: game theoretic models and those based upon simulation and agent-based models (ABMs). ABMs allow for the simulation of heterogenous irrational actors with imperfect information. Additionally ABMs allow for the modelling of learning and adaption within a dynamic environment \cite{EsmaeiliAliabadi2017}. Game theoretic approaches may struggle in complex electricity markets where Nash equilibriums do not exist \cite{Wang2011}.
+
+Kumar \textit{et al.} propose a Shuffled Frog Leaping Algorithm (SFLA) \cite{VijayaKumar2014} to find bidding strategies for GenCos in electricity markets. SFLA is a meta-heuristic that is based on the evolution of memes carried by active individuals, as well as a global exchange of information among the frog population. They test the effectiveness of the SFLA algorithm on an IEEE 30-bus system and a practical 75-bus Indian system. They find superior results when compared to particle swarm optimization and the genetic algorithm with respect to total profit and convergence with CPU time. They assume that each GenCo bids a linear supply function, and they model the expectation of bids from rivals as a joint normal distribution. In contrast to their work, we do not require an estimation of the rivals bids.
+
+Wang \textit{et al.} propose an evolutionary imperfect information game approach to analyzing bidding strategies with price-elastic demand \cite{Wang2011}. Their evolutionary approach allows for GenCos to adapt and update their beliefs about an opponents' bidding strategy during the simulation. They model a 2-bus system with 3 GenCos. Our work, however, models a simulation with 60 GenCos modelled across the entire UK. 
+
+The previously discussed approaches take a game theoretic view. Next, we explore reinforcement learning approaches used to make intelligent bidding decisions in electricity markets.
+
+
+
+
+Bertrand \textit{et al.} use RL in a continuous intraday market. Specifically, they use the REINFORCE algorithm to optimize the choice of price thresholds. They demonstrate an ability to outperform the traditionally used method, the rolling intrinsic method, by increasing profit per day by 4.2\%. The rolling intrinsic method accepts any trade which gives a positive profit if the contracted quantity remains in the bounds of capacity. In our paper, we model a day-ahead market and use a continuous action for price bids, as opposed to a discrete threshold.
+
+
+
+
+
+
 
 - Game theory versus agent based models\\
 
