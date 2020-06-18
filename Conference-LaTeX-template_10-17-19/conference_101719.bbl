@@ -21,10 +21,34 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{Kell2020}
-A.~J.~M. Kell, M.~Forshaw, and A.~S. McGough, ``{Long-Term Electricity Market
-  Agent Based Model Validation using Genetic Algorithm based Optimization},''
-  \emph{The Eleventh ACM International Conference on Future Energy Systems
-  (e-Energy'20)}, 2020.
+\bibitem{Kell}
+A.~Kell, M.~Forshaw, and A.~S. Mcgough, ``{ElecSim : Monte-Carlo Open-Source
+  Agent-Based Model to Inform Policy for Long-Term Electricity Planning},''
+  \emph{The Tenth ACM International Conference on Future Energy Systems (ACM
+  e-Energy)}, pp. 556--565, 2019.
+
+\bibitem{Kell2019a}
+A.~Kell, M.~Forshaw, and A.~S. McGough, ``{Modelling carbon tax in the UK
+  electricity market using an agent-based model},'' \emph{e-Energy 2019 -
+  Proceedings of the 10th ACM International Conference on Future Energy
+  Systems}, no. Ldc, pp. 425--427, 2019.
+
+\bibitem{Hunt2016}
+J.~J. Hunt, A.~Pritzel, N.~Heess, T.~Erez, Y.~Tassa, D.~Silver, and
+  D.~Wierstra, ``{Continuous learning control with deep reinforcement},''
+  \emph{International Conference on Learning Representations (ICLR)}, 2016.
+
+\bibitem{Ye2020a}
+Y.~Ye, D.~Qiu, M.~Sun, D.~Papadaskalopoulos, and G.~Strbac, ``{Deep
+  Reinforcement Learning for Strategic Bidding in Electricity Markets},''
+  \emph{IEEE Transactions on Smart Grid}, vol.~11, no.~2, pp. 1343--1355, 2020.
+
+\bibitem{EsmaeiliAliabadi2017}
+\BIBentryALTinterwordspacing
+D.~{Esmaeili Aliabadi}, M.~Kaya, and G.~Sahin, ``{Competition, risk and
+  learning in electricity markets: An agent-based simulation study},''
+  \emph{Applied Energy}, vol. 195, pp. 1000--1011, 2017. [Online]. Available:
+  \url{http://dx.doi.org/10.1016/j.apenergy.2017.03.121}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}
