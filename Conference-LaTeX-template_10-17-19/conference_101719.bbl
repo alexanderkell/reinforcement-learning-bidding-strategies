@@ -51,4 +51,17 @@ D.~{Esmaeili Aliabadi}, M.~Kaya, and G.~Sahin, ``{Competition, risk and
   \url{http://dx.doi.org/10.1016/j.apenergy.2017.03.121}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Tellidou2007}
+A.~C. Tellidou and A.~G. Bakirtzis, ``{Agent-based analysis of monopoly power
+  in electricity markets},'' \emph{2007 International Conference on Intelligent
+  Systems Applications to Power Systems, ISAP}, 2007.
+
+\bibitem{Wang2011}
+\BIBentryALTinterwordspacing
+J.~Wang, Z.~Zhou, and A.~Botterud, ``{An evolutionary game approach to
+  analyzing bidding strategies in electricity markets with elastic demand},''
+  \emph{Energy}, vol.~36, no.~5, pp. 3459--3467, 2011. [Online]. Available:
+  \url{http://dx.doi.org/10.1016/j.energy.2011.03.050}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

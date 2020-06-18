@@ -69,23 +69,28 @@ Abstract goes here.
 \end{abstract}
 
 \begin{IEEEkeywords}
-reinforcement learning, bidding strategy, multi-agent system, electricity markets
+deep reinforcement learning, bidding strategy, multi-agent system, electricity markets
 \end{IEEEkeywords}
 
 \section{Introduction}
+\label{sec:introduction}
 
-Under perfectly competitive electricity markets, generator companies (GenCos) tend to bid their short-run marginal costs (SRMC) when bidding into the day-ahead electricity market. Where the SRMC is the cost to produce a single MWh of electricity, and excludes capital costs. However, electricity markets are often oligopolistic, where a small subset of GenCos provide a majority of the capacity to the market. Under these conditions, it is possible that the assumption that GenCos are price-takers do not hold. That is, large GenCos artificially increase the price of electricity to gain increasing profit using their market power. 
+Under perfectly competitive electricity markets, generator companies (GenCos) tend to bid their short-run marginal costs (SRMC) when bidding into the day-ahead electricity market. Where the SRMC is the cost to produce a single MWh of electricity, and excludes capital costs. However, electricity markets are often oligopolistic, where a small subset of GenCos provide a majority of the capacity to the market. Under these conditions, it is possible that the assumption that GenCos are price-takers does not hold. That is, large GenCos artificially increase the price of electricity to gain increasing profit using their market power. 
 
-Reduced competition within electricity markets can lead to higher prices to the consumers, for no increased benefit. It is therefore within the interests of the consumer and that of government to maintain a competitive market. Competition within electricity markets can be decreased through having a single, or multiple entities with large control over capacity in electricity markets. 
+Reduced competition within electricity markets can lead to higher prices to the consumers, for no increased societal benefit. It is therefore within the interests of the consumer and that of government to maintain a competitive market. Low energy costs can enable innovation in other industries reliant on electricity, and in turn make a more effective economy. Competition within electricity markets can be decreased through having multiple entities with a relatively small control over capacity in electricity markets. 
 
 In this paper, we explore the effect of total controlled capacity on electricity prices. Specifically, we use deep reinforcement learning (RL) to calculate a bidding strategy for GenCos in a day-ahead market. These GenCos are modelled as agents within the agent-based model, ElecSim \cite{Kell}. We use the UK electricity market instantiated in 2018 as a case study, similar to our work in \cite{Kell2019a}. That is, we model each GenCo with their respective power plants in the year 2018 to 2019. In total we model 60 GenCos with 1085 power plants.
 
-We use the deep deterministic policy gradient deep RL algorithm, which allows for a continuous action space \cite{Hunt2016}. Conventional RL methods require discretization of state and/or action spaces and therefore suffer from the curse of dimensionality \cite{Ye2020a}. As the number of discrete states and actions increases, the computational cost grows exponentially. However, too small a number of discrete states and actions will reduce the information available to the GenCos, leading to sub-optimal bidding strategies. Additionally, by using a continuous approach, we allow for GenCos to consider increasingly complex bidding strategies. 
+We use the deep deterministic policy gradient (DDPG) deep RL algorithm, which allows for a continuous action space \cite{Hunt2016}. Conventional RL methods require discretization of state and/or action spaces and therefore suffer from the curse of dimensionality \cite{Ye2020a}. As the number of discrete states and actions increases, the computational cost grows exponentially. However, too small a number of discrete states and actions will reduce the information available to the GenCos, leading to sub-optimal bidding strategies. Additionally, by using a continuous approach, we allow for GenCos to consider increasingly complex bidding strategies. 
 
-Other work considers a simplified model of an electricity market by modelling a small number of GenCos or plants \cite{EsmaeiliAliabadi2017}. We, however, model each GenCo as per the UK electricity market with their respective power plants in a day-ahead market. Additionally, other work focuses on a bidding strategy to maximize profit for a GenCo. In our work, we focus on the impact of large GenCos, as well as collusion between GenCos on total the electricity price. 
+Other work considers a simplified model of an electricity market by modelling a small number of GenCos or plants \cite{EsmaeiliAliabadi2017,Tellidou2007}. We, however, model each GenCo as per the UK electricity market with their respective power plants in a day-ahead market. Additionally, other work focuses on a bidding strategy to maximize profit for a GenCo. In our work, we focus on the impact of large GenCos, as well as collusion, between GenCos on total the electricity price. 
 
 
-Our approach does not require GenCos to formulate any knowledge of the information informing the market clearing algorithm or rival GenCo bidding strategies. This enables a more realistic simulation
+Our approach does not require GenCos to formulate any knowledge of the information informing the market clearing algorithm or rival GenCo bidding strategies, unlike in game theoretic approaches \cite{Wang2011}. This enables a more realistic simulation where the strategy of rival GenCos are unknown.
+
+In Section \ref{sec:lit-review} we review the literature, and explore other approaches of RL in electricity markets. In Section \ref{sec:material} we introduce the agent-based model used and the DDPG algorithm. Section \ref{sec:methodology} explores the methodology taken for our case study. We discuss and conclude our work in Sections \ref{sec:discussion} and \ref{sec:conclusion} respectively. 
+
+
 
 
 %- Why the current approaches / systems don't solve the problem
@@ -105,7 +110,7 @@ Our approach does not require GenCos to formulate any knowledge of the informati
 
 % Contributions of this work
 
-- Look at market power of individual or groups of agents
+%- Look at market power of individual or groups of agents
 
 %- Outline of the rest of the work
 
@@ -113,6 +118,7 @@ Our approach does not require GenCos to formulate any knowledge of the informati
 
 
 \section{Literature Review}
+\label{sec:lit-review}
 
 - Game theory versus agent based models\\
 
@@ -123,6 +129,7 @@ Our approach does not require GenCos to formulate any knowledge of the informati
 
 
 \section{Material}
+\label{sec:material}
 
 - Market Structure of ElecSim (yearly outlook) \\
 - Real life structure of the UK\\
@@ -142,6 +149,7 @@ Our approach does not require GenCos to formulate any knowledge of the informati
 
 
 \section{Methodology}
+\label{sec:methodology}
 
 - Grouping agents based upon size and seeing results\\
 - Observation and action space \\
@@ -150,17 +158,19 @@ Our approach does not require GenCos to formulate any knowledge of the informati
 
 
 \section{Results}
+\label{sec:results}
 
 - Show time-steps vs. reward for both scenarios \\
 - Show the step change in reward after a certain amount of controlled capacity
 
 \section{Discussion}
+\label{sec:discussion}
 
 - Make suggestions based upon optimal level of competition \\
 - Importance of understanding market power and having a regulator otherwise prices can significantly increase
 
 \section{Conclusion}
-
+\label{sec:conclusion}
 - Future work (withold capacity)
 
 
