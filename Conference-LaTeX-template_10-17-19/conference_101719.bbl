@@ -78,9 +78,19 @@ J.~{Vijaya Kumar} and D.~M. Kumar, ``{Generation bidding strategy in a pool
   Available: \url{http://dx.doi.org/10.1016/j.asoc.2014.03.027}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Yang2020}
+T.~Yang, L.~Zhao, W.~Li, and A.~Y. Zomaya, ``{Reinforcement learning in
+  sustainable energy and electric systems: a survey},'' \emph{Annual Reviews in
+  Control}, vol.~49, pp. 145--163, 2020.
+
 \bibitem{Schaul2016}
 T.~Schaul, J.~Quan, I.~Antonoglou, and D.~Silver, ``{Prioritized experience
   replay},'' \emph{4th International Conference on Learning Representations,
   ICLR 2016 - Conference Track Proceedings}, pp. 1--21, 2016.
+
+\bibitem{Zhao2016}
+H.~Zhao, Y.~Wang, S.~Guo, M.~Zhao, and C.~Zhang, ``{Application of a Gradient
+  Descent Continuous Actor-Critic Algorithm for Double-Side Day-Ahead
+  Electricity Market Modeling},'' \emph{Energies}, vol.~9, no.~9, p. 725, 2016.
 
 \end{thebibliography}
