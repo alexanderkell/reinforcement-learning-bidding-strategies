@@ -7,6 +7,8 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+
+
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -137,7 +139,34 @@ In \cite{Zhao2016}, Zhao \textit{et al.} propose a modified RL method, known as 
 \section{Material}
 \label{sec:material}
 
+In this section we describe the RL methodology used for the intelligent bidding process as well as the simulation model used as the environment.
+
 \subsection{Reinforcement Learning}
+
+\subsubsection{RL Background}
+
+Generally in RL, an agent interacts with an environment to maximize its cumulative reward. Generally, RL can be described as a Markov Decision Process (MDP). An MDP includes a state space $\mathcal{S}$, action space $\mathcal{A}$, a transition dynamics distribution $p(s_{t+1}|s_t,a_t)$ and a reward function, where $r:S\times \mathcal{A} \rightarrow \mathbb{R}$. At each time-step an agent receives an observation.
+
+An agent's behaviour is defined by a policy, $\pi$. $\pi$ maps states to a probability distribution over the actions $\pi:\mathcal{S}\rightarrow \mathcal{P}(\mathcal{A})$. The return from a state is defined as the sum of discounted future reward $R_t=\sum_{i=t}^T\gamma^{(i-t)}r(s_i,a_i)$. Where $\gamma$ is a discounting factor $\gamma \in [0,1]$. The return is dependent on the action chosen, which is dependent on the policy $\pi$. The goal in reinforcement learning is the learn a policy that maximizes the expected return from the start distribution $J=\mathbb{E}_{r_i,s_i \sim E,a_i \sim \pi}[R_1]$. 
+
+The expected return after taking an action $a_t$ in state $s_t$ after following policy $\pi$ can be found by the action-value function. The action-value function is used in many reinforcement learning algorithms and is defined in Equation \ref{eq:action-value}
+
+\begin{equation}
+	\label{eq:action-value}
+	\mathcal{Q}^{\pi}(s_t,a_t)=\mathbb{E}_{r_{i\geq t},s_{i>t}\sim \mathcal{E},a_{i>t}\sim\pi}[R_t|s_t,a_t]
+\end{equation}
+
+
+An optimal policy can be derived from the optimal Q-values $Q_*(s_t,a_t)=\max_\pi Q_\pi(s_t,a_t)$ by selecting the action corresponding to the highest Q-value in each state.
+
+\subsection{Q-Learning}
+
+
+
+
+
+
+
 
 - Introduction to RL and DDPG (model-free approach and continuous action space) \\
 - Problems with Q-learning not using entire continuous space. \\
