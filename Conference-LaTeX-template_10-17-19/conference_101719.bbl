@@ -93,4 +93,24 @@ H.~Zhao, Y.~Wang, S.~Guo, M.~Zhao, and C.~Zhang, ``{Application of a Gradient
   Descent Continuous Actor-Critic Algorithm for Double-Side Day-Ahead
   Electricity Market Modeling},'' \emph{Energies}, vol.~9, no.~9, p. 725, 2016.
 
+\bibitem{Gay2007}
+C.~J. C.~H. Watkins and P.~Dayan, ``{Q-Learning},'' \emph{Machine Learning},
+  vol. 292, pp. 179--184, 1992.
+
+\bibitem{Sutton2015}
+R.~S. Sutton and A.~G. Barto, ``{An introduction to reinforcement learning},''
+  \emph{The MIT Press}, 2015.
+
+\bibitem{Silver2014}
+D.~Silver, G.~Lever, N.~Heess, T.~Degris, D.~Wierstra, and M.~Riedmiller,
+  ``{Deterministic policy gradient algorithms},'' \emph{31st International
+  Conference on Machine Learning, ICML 2014}, vol.~1, pp. 605--619, 2014.
+
+\bibitem{Kell2020b}
+\BIBentryALTinterwordspacing
+A.~J.~M. Kell, M.~Forshaw, and A.~S. McGough, ``{Long-term electricity market
+  agent based model validation using genetic algorithm based optimization},''
+  pp. 1--13, 2020. [Online]. Available: \url{http://arxiv.org/abs/2005.10346}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

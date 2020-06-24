@@ -141,50 +141,104 @@ In \cite{Zhao2016}, Zhao \textit{et al.} propose a modified RL method, known as 
 
 In this section we describe the RL methodology used for the intelligent bidding process as well as the simulation model used as the environment.
 
-\subsection{Reinforcement Learning}
+\subsection{Reinforcement Learning background}
 
-\subsubsection{RL Background}
+%\subsubsection{RL Background}
 
 Generally in RL, an agent interacts with an environment to maximize its cumulative reward. Generally, RL can be described as a Markov Decision Process (MDP). An MDP includes a state space $\mathcal{S}$, action space $\mathcal{A}$, a transition dynamics distribution $p(s_{t+1}|s_t,a_t)$ and a reward function, where $r:S\times \mathcal{A} \rightarrow \mathbb{R}$. At each time-step an agent receives an observation.
 
 An agent's behaviour is defined by a policy, $\pi$. $\pi$ maps states to a probability distribution over the actions $\pi:\mathcal{S}\rightarrow \mathcal{P}(\mathcal{A})$. The return from a state is defined as the sum of discounted future reward $R_t=\sum_{i=t}^T\gamma^{(i-t)}r(s_i,a_i)$. Where $\gamma$ is a discounting factor $\gamma \in [0,1]$. The return is dependent on the action chosen, which is dependent on the policy $\pi$. The goal in reinforcement learning is the learn a policy that maximizes the expected return from the start distribution $J=\mathbb{E}_{r_i,s_i \sim E,a_i \sim \pi}[R_1]$. 
 
-The expected return after taking an action $a_t$ in state $s_t$ after following policy $\pi$ can be found by the action-value function. The action-value function is used in many reinforcement learning algorithms and is defined in Equation \ref{eq:action-value}
+The expected return after taking an action $a_t$ in state $s_t$ after following policy $\pi$ can be found by the action-value function. The action-value function is used in many reinforcement learning algorithms and is defined in Equation \ref{eq:action-value}.
 
 \begin{equation}
 	\label{eq:action-value}
-	\mathcal{Q}^{\pi}(s_t,a_t)=\mathbb{E}_{r_{i\geq t},s_{i>t}\sim \mathcal{E},a_{i>t}\sim\pi}[R_t|s_t,a_t]
+	Q^{\pi}(s_t,a_t)=\mathbb{E}_{r_{i\geq t},s_{i>t}\sim \mathcal{E},a_{i>t}\sim\pi}[R_t|s_t,a_t]
 \end{equation}
 
 
-An optimal policy can be derived from the optimal Q-values $Q_*(s_t,a_t)=\max_\pi Q_\pi(s_t,a_t)$ by selecting the action corresponding to the highest Q-value in each state.
-
 \subsection{Q-Learning}
 
+ An optimal policy can be derived from the optimal $Q$-values $Q_*(s_t,a_t)=\max_\pi Q_\pi(s_t,a_t)$ by selecting the action corresponding to the highest Q-value in each state.
+
+Many approaches in reinforcement learning use the recursive relationship known as the Bellman equation. The Bellman equation is defined in Equation \ref{eq:bellman}.
+
+\begin{equation}
+	\label{eq:bellman}
+	Q^\pi(s_t,a_t)=\mathbb{E}_{{r_t},s_{t+1}\sim E} [r(s_t,a_t)+\gamma\mathbb{E}_{a_{t+1}\sim \pi}[Q_\pi(s_{t+1},\pi(s_{t+1}))]]
+\end{equation}
+
+\noindent The Q-value can therefore be improved by bootstrapping. This is where the current value of the estimate of $Q_\pi$ is used to improve its future estimate, using the known $r(s_t,a_t)$ value. This is the foundation of Q-learning \cite{Gay2007}, a form of \textit{temporal difference} (TD) learning \cite{Sutton2015}, where the update of the Q-value after taking action $a_t$ in state $s_t$ and observing reward $r_t$, which results in state $s_{t+1}$ is:
+\begin{equation}
+	Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha\delta_t
+\end{equation}
+
+\begin{equation}
+	\delta_t=r_t+\gamma\max_{a_{t+1}}Q(s_{t+1},a_{t+1})-Q(s_{t},a_t)
+\end{equation}
+
+\noindent where $\alpha\in [0,1]$ is the step size, $\delta_t$ represents the correction for the estimation of the Q-value function and $r_t+\gamma\max_{a_{t+1}}Q(s_{t+1},a_{t+1})$ represents the target Q-value at time step $t$.	
+
+
+It can be proven that if if the Q-value for each state action pair is visited infinitely often, the learning rate $alpha$ decreases over time step $t$, then as $t\rightarrow \infty$, $Q(s,a)$ converges to the optimal $Q_*(s,a)$ for every state-action pair \cite{Gay2007}.
+
+However, it is the case that Q-learning suffers from the curse of dimensionality. This is because in Q-learning stores the Q-value function in a look-up table. This therefore requires the action and state spaces to be discretized. As the number of discretized states and actions increases, the computational cost increases exponentially, making the problem intractable. 
+
+\subsection{Deep Deterministic Gradient Policy}
+
+
+It is not straightforward to apply Q-learning to continuous action spaces. This is because in continuous spaces, finding the greedy policy requires an optimization of $a_t$ at every time-step. Optimizing for $a_t$ at every time-step would be too slow to be practical with large, unconstrained function approximators and nontrivial action spaces \cite{Hunt2016}. To solve this, an actor-critic approach based on the deterministic policy gradient (DPG) algorithm is used \cite{Silver2014}.
+
+
+The DPG algorithm maintains a parameterized actor function $\mu(s|\theta^\mu)$ which specifies the current policy by deterministically mapping states to a specific action. The critic $Q(s,a)$ is learned using the Bellman equation as in Q-learning. The actor is updated by applying the chain rule to the expected return from the start distribution $J$ with respect to the actor parameters:
+
+\begin{align}
+	\triangledown_{\theta^\mu}J\approx\mathbb{E}_{s_t\sim\rho^\beta}[\triangledown_{\theta^\mu}Q(s,a|\theta^Q)|_{s=s_t,a=\mu(s_t|\theta^\mu)}] \\
+	= \mathbb{E}_{s_t\sim\rho^\beta}[\triangledown_aQ(s,a|\theta^Q)|_{s=s_t,a=\mu(s_t)}\triangledown_{\theta_\mu}\mu(s|\theta^\mu)|_{s=s_t}]
+\end{align}
+  
+This is the policy gradient. The policy gradient is the gradient of he policy's performance. 
+
+Introducing non-linear function approximators, however, mean that convergence is no longer guaranteed. Although, these function approximators are required in order to learn and generalize on large state spaces. The Deep Deterministic Gradient Policy (DDPG) modifies the DPG algorithm by using neural network function approximators to learn large state and action spaces online.
+
+A replay buffer is utilized in the DDPG algorithm to address the issue of ensuring that samples are independently and identically distributed. The replay buffer is a finite sized cache $\mathcal{R}$. This is where transitions are samples from the environment through the use of the exploration policy, and the tuple $(s_t,a_t,r_t,s_{t+1})$ is stored in the replay buffer. Old samples are discarded as the replay buffer becomes full. The actor and critic are trained by sampling from the replay buffer uniformly. 
+
+A copy is made of the actor and critic networks, $Q'(s,a|\theta^{Q'})$ and $\mu'(s|\theta^{\mu'})$ respectively. These are used fr calculating the target values. To ensure stability, the weights of these target networks are updated by slowly tracking the learned networks.
+
+\subsection{Simulation}
+
+For this work we utilized the long-term electricity market agent-based model, ElecSim \cite{Kell,Kell2020b}. We utilized the model in a short term approach, however, by only iterating through a single year (2018), composed of eight representative days, each of 24 time-steps.
+
+ElecSim is made up of six fundamental components: 1) power plant data; 2) scenario data; 3) the time-steps of the algorithm; 4) the power exchange; 5) the investment algorithm and 6) the generation companies (GenCos) as agents. For this paper we ignore the investment algorithm, due to investments happening only once a year, and not in the first year of operation. 
+
+ElecSim uses a subset of representative days of electricity demand, solar irradiance and wind speed to approximate a full year. Representative days, in this context, are a subset of days which can closely approximate an entire year's electricity demand and weather patterns. By using a subset, we are able to reduce the computational time to run for a year, whilst maintaining accuracy of modelling the real electricity market \cite{Kell2020}.
+
+Figure \ref{fig:model_details} shows how the six fundamental components interact. The electricity demand is matched with the supply of the power plants, owned by the generator companies (GenCos). We have configured ElecSim to model the UK electricity market, using the configuration file. Specifically, we model the actual GenCos with their respective power plants that were in operation in 2018.
+
+
+
+\begin{figure}
+    \includegraphics[width=0.44\textwidth]{figures/methedology/System_overview_large.png}
+    \caption{System overview of ElecSim \cite{Kell}.}
+    \label{fig:model_details}
+\end{figure}
+
+The market has a uniform pricing bidding mechanism. A uniform pricing mechanism is one where a single price is paid for all electrical capacity, irrespective of the bid. The bid that is paid is that of the highest accepted price. This incentivises GenCos to bid their SRMC is the price that it takes to generate a single MWh of electricity, excluding capital costs. 
+
+In this work we modify the bidding strategy of a subset of the GenCos. They bid based upon the policy of the DDPG RL algorithm, as opposed to their SRMC. This is to explore whether large GenCos, or a group of GenCos can manipulate the price of the electricity market through market power. The remaining GenCos, which fall outside of this group, maintain a bidding strategy based upon their SRMC.
+
+For the purpose of this work we do not consider flow constraints within the electricity mix. This is because we model the entire UK with over 1000+ generators, and many nodes and buses. This would make the optimization problem intractable for the purpose of our simulation, especially when considering the many episodes required for training. It takes ${\sim}10$ seconds to run a single year in the simulation, or episode with our current setup. 
 
 
 
 
+%- Market Structure of ElecSim (yearly outlook) \\
+%- Real life structure of the UK\\
 
+%- We change the price of the bid (from SRMC to Bid cap in the market)\\
 
-
-- Introduction to RL and DDPG (model-free approach and continuous action space) \\
-- Problems with Q-learning not using entire continuous space. \\
-- Explore our parameters of DDPG
-
--Note that in the model, the GenCo does not take any strategic action, that is, the GenCo does not consider the actions of other GenCos explicitly in its decision process. In fact, it does not have information on other GenCos. The GenCo is modeled as a simple agent that learns only from its own experi- ence. GenCos’ collective behavior, however, may lead to strategic outcomes.\cite{EsmaeiliAliabadi2017}\\
-
-
-
-
-- Market Structure of ElecSim (yearly outlook) \\
-- Real life structure of the UK\\
-- Assumed that all capacity is bid\\
-- We change the price of the bid (from SRMC to Bid cap in the market)\\
-- The GenCo has no information about the generation capacity, marginal cost, bid prices or profits of other GenCos, or the total number of GenCos in the system. \cite{EsmaeiliAliabadi2017}\\
-
-- Do not consider flow constraints due to the large nature of the simulation\\
-- Amount of time taken to run 1 episode is...\\ 
+%- Do not consider flow constraints due to the large nature of the simulation\\
+%- Amount of time taken to run 1 episode is...\\ 
 
 
 
@@ -195,7 +249,14 @@ An optimal policy can be derived from the optimal Q-values $Q_*(s_t,a_t)=\max_\p
 - Grouping agents based upon size and seeing results\\
 - Observation and action space \\
 - Allowing them to bid maximum of \textsterling600 and a market cap of \textsterling150
+- Assumed that all capacity is bid\\
+- Explore our parameters of DDPG
 
+- The GenCo has no information about the generation capacity, marginal cost, bid prices or profits of other GenCos, or the total number of GenCos in the system. \cite{EsmaeiliAliabadi2017}\\
+
+
+
+-Note that in the model, the GenCo does not take any strategic action, that is, the GenCo does not consider the actions of other GenCos explicitly in its decision process. In fact, it does not have information on other GenCos. The GenCo is modeled as a simple agent that learns only from its own experi- ence. GenCos’ collective behavior, however, may lead to strategic outcomes.\cite{EsmaeiliAliabadi2017}\\
 
 
 \section{Results}
