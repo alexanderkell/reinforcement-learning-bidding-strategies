@@ -7,7 +7,8 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
-
+\usepackage{csvsimple}
+\usepackage{booktabs}
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -246,17 +247,66 @@ For the purpose of this work we do not consider flow constraints within the elec
 \section{Methodology}
 \label{sec:methodology}
 
-- Grouping agents based upon size and seeing results\\
-- Observation and action space \\
-- Allowing them to bid maximum of \textsterling600 and a market cap of \textsterling150
-- Assumed that all capacity is bid\\
-- Explore our parameters of DDPG
+To parameterize the simulation we use data from the United Kingdom in 2018. This included 1085 electricity generators and power plants with their respective GenCos. We changed the bidding strategy of select GenCos, as well as groups of GenCos, from a bid based upon the SRMC to a policy defined by the DDPG RL algorithm.
 
-- The GenCo has no information about the generation capacity, marginal cost, bid prices or profits of other GenCos, or the total number of GenCos in the system. \cite{EsmaeiliAliabadi2017}\\
+Through this we hoped to observe the ability for RL to find the point at which market power  artificially inflates electricity prices. To achieve this we chose the six largest GenCos in the UK, as well as a smaller GenCo as a control. Table \ref{table:genco_table} displays the groups of GenCos with their respective capacity and number of plants.
 
 
 
--Note that in the model, the GenCo does not take any strategic action, that is, the GenCo does not consider the actions of other GenCos explicitly in its decision process. In fact, it does not have information on other GenCos. The GenCo is modeled as a simple agent that learns only from its own experi- ence. GenCos’ collective behavior, however, may lead to strategic outcomes.\cite{EsmaeiliAliabadi2017}\\
+
+
+\begin{table}
+\centering
+\begin{tabular}{p{5cm}lllp{2cm}}
+\toprule
+GenCo Groups                                                                                                                  & Capacity & Num. of Plants \\ \midrule
+Orsted                                                                                                                       & 2738.7   & 11               \\
+Drax Power Ltd                                                                                                               & 4035.0   & 3                \\
+Scottish power                                                                                                               & 4471.5   & 49               \\
+Uniper UK Limited                                                                                                            & 6605.0   & 9                \\
+SSE                                                                                                                          & 8390.7   & 130              \\
+RWE Generation SE                                                                                                            & 8664.0   & 11               \\
+EDF Energy                                                                                                                   & 14763.0  & 14               \\
+\{EDF Energy, RWE Generation SE\}                                                                                              & 23427.0  & 25               \\
+\{EDF Energy, \\ RWE Generation SE, SSE\}                                          & 31817.7  & 155              \\
+\{EDF Energy, \\ RWE Generation SE, SSE, Uniper UK Ltd\}                              & 38422.7  & 164              \\
+\{EDF Energy, \\ RWE Generation SE, SSE, Uniper UK Ltd, Scottish Power\}              & 42894.2  & 213              \\
+\{EDF Energy, \\ RWE Generation SE, SSE, Uniper UK Ltd, Scottish Power, Drax Power Ltd\} & 46929.2  & 216              \\ 
+\bottomrule
+\end{tabular}
+\caption{Groups of GenCos that used bidding strategies, number of plants and total electricity generting capacity owned.}
+\label{table:genco_table}
+\end{table}
+
+
+For the reinforcement learning problem we have the following tuple: $(s_t,a_t,r_t,s_{t+1})$, where $(s_t, s_{t+1})$ is the state at time $t$ and $t+1$ respectively, $a_t$ is the action at time $t$ and $r_t$ is the reward at time $t$. For our problem the state space is given by the tuple shown in Equation \ref{eq:observation_tuple}:
+
+\begin{equation}
+\label{eq:observation_tuple}
+	s_t=(H_i,D_i,p_{C02},p_{gas},p_{coal},p_{c})
+\end{equation}
+
+\noindent where $H_i$ is the segment hour to bid into at timestep $i$, $D_t$ is the demand of the segment hour at timestep $t$, $p_{gas}$ is the price of gas, $p_{C02}$ is the carbon tax price, and $p_{c}$ is the clearing price. We set the reward, $r_t$ to be the average electricity price of that time-step, $p_{avg}$.
+
+For the action space, $a_t$, we modelled two scenarios. Where there was a price cap of $\textsterling 150$/MWh and $\textsterling 600$/MWh. We chose $\textsterling 150$/MWh as a reasonable price cap that may be introduced by a Government, which allowed for variations in demand within different demand segments. The $\textsterling 600$/MWh was chosen to simulate an unbounded price cap. This enabled us to see the price that an equilibrium is reached within a market with agents with market power. 
+
+For this work, we assume that the action space $a_t$ only bids price, and not how much capacity to bid on the market. We assume this to reduce the dimensionality of $a_t$, and simplify the training process.
+
+In this work, we assume that the GenCo Groups have no information about the generation capacity, marginal cost, bid prices or profits of other GenCos \cite{EsmaeiliAliabadi2017}. They learn through experience the maximum profit that can be made through experience within a particular market.
+
+%- Grouping agents based upon size and seeing results\\
+%- Observation and action space \\
+%- Allowing them to bid maximum of \textsterling600 and a market cap of \textsterling150
+%- Assumed that all capacity is bid\\
+%- Explore our parameters of DDPG
+
+%- The GenCo has no information about the generation capacity, marginal cost, bid prices or profits of other GenCos, or the total number of GenCos in the system. \cite{EsmaeiliAliabadi2017}\\
+
+
+
+%-Note that in the model, the GenCo does not take any strategic action, that is, the GenCo does not consider the actions of other GenCos explicitly in its decision process. In fact, it does not have information on other GenCos. The GenCo is modeled as a simple agent that learns only from its own experi- ence. GenCos’ collective behavior, however, may lead to strategic outcomes.\cite{EsmaeiliAliabadi2017}\\
+
+
 
 
 \section{Results}
