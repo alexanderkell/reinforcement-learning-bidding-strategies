@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.22)  24 JUN 2020 19:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.22)  25 JUN 2020 12:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -341,46 +341,87 @@ File: figures/methedology/System_overview_large.png Graphic file (type png)
 Package pdftex.def Info: figures/methedology/System_overview_large.png  used on input line 222.
 (pdftex.def)             Requested size: 227.04126pt x 147.1969pt.
 [3 <./figures/methedology/System_overview_large.png>]
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 270.
 
-Overfull \hbox (4.5271pt too wide) in paragraph at lines 260--277
+LaTeX Warning: Citation `dukes_511' on page 4 undefined on input line 251.
+
+
+LaTeX Warning: Citation `gridwatch' on page 4 undefined on input line 251.
+
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 271.
+
+Overfull \hbox (4.5271pt too wide) in paragraph at lines 261--278
  [][] 
  []
 
 
-LaTeX Warning: Command \textsterling invalid in math mode on input line 291.
+LaTeX Warning: Command \textsterling invalid in math mode on input line 292.
 
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 291.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 292.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 
-LaTeX Warning: Command \textsterling invalid in math mode on input line 291.
+LaTeX Warning: Command \textsterling invalid in math mode on input line 292.
 
 Missing character: There is no £ in font cmr10!
 
-LaTeX Warning: Command \textsterling invalid in math mode on input line 291.
+LaTeX Warning: Command \textsterling invalid in math mode on input line 292.
 
 
-LaTeX Warning: Command \textsterling invalid in math mode on input line 291.
-
-Missing character: There is no £ in font cmr10!
-
-LaTeX Warning: Command \textsterling invalid in math mode on input line 291.
-
-
-LaTeX Warning: Command \textsterling invalid in math mode on input line 291.
+LaTeX Warning: Command \textsterling invalid in math mode on input line 292.
 
 Missing character: There is no £ in font cmr10!
 
-LaTeX Warning: Command \textsterling invalid in math mode on input line 291.
+LaTeX Warning: Command \textsterling invalid in math mode on input line 292.
 
 
-LaTeX Warning: Command \textsterling invalid in math mode on input line 291.
+LaTeX Warning: Command \textsterling invalid in math mode on input line 292.
 
 Missing character: There is no £ in font cmr10!
-(./conference_101719.bbl [4])
+
+LaTeX Warning: Command \textsterling invalid in math mode on input line 292.
+
+
+LaTeX Warning: Command \textsterling invalid in math mode on input line 292.
+
+Missing character: There is no £ in font cmr10!
+
+Underfull \hbox (badness 4595) in paragraph at lines 320--321
+[]\OT1/ptm/m/n/10 The av-er-age elec-tric-ity price for a ca-pac-ity be-low
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
+\OT1/cmr/m/n/10 30\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 000$\OT1/ptm/m/n/10 MW re-mains sta-ble be-tween \TS1/ptm/m/n/10 £\OT1/ptm/m/n/10 70/MWh and
+ []
+
+<figures/results/unbounded_results.pdf, id=31, 853.1875pt x 568.1225pt>
+File: figures/results/unbounded_results.pdf Graphic file (type pdf)
+<use figures/results/unbounded_results.pdf>
+Package pdftex.def Info: figures/results/unbounded_results.pdf  used on input line 328.
+(pdftex.def)             Requested size: 247.6778pt x 164.92467pt.
+<figures/results/unbounded_results_scatter.pdf, id=32, 853.1875pt x 568.1225pt>
+File: figures/results/unbounded_results_scatter.pdf Graphic file (type pdf)
+<use figures/results/unbounded_results_scatter.pdf>
+Package pdftex.def Info: figures/results/unbounded_results_scatter.pdf  used on input line 339.
+(pdftex.def)             Requested size: 247.6778pt x 164.92467pt.
+
+Underfull \hbox (badness 3354) in paragraph at lines 346--347
+[]\OT1/ptm/m/n/10 Figure 4[] shows a clus-ter be-tween $[]$\TS1/ptm/m/n/10 £$\OT1/cmr/m/n/10 60$\OT1/ptm/m/n/10 /MWh and
+ []
+
+<figures/results/bounded_results.pdf, id=33, 853.1875pt x 568.1225pt>
+File: figures/results/bounded_results.pdf Graphic file (type pdf)
+<use figures/results/bounded_results.pdf>
+Package pdftex.def Info: figures/results/bounded_results.pdf  used on input line 350.
+(pdftex.def)             Requested size: 247.6778pt x 164.92467pt.
+<figures/results/bounded_results_scatter.pdf, id=34, 853.1875pt x 568.1225pt>
+File: figures/results/bounded_results_scatter.pdf Graphic file (type pdf)
+<use figures/results/bounded_results_scatter.pdf>
+Package pdftex.def Info: figures/results/bounded_results_scatter.pdf  used on input line 359.
+(pdftex.def)             Requested size: 247.6778pt x 164.92467pt.
+[4] [5 <./figures/results/unbounded_results.pdf> <./figures/results/unbounded_results_scatter.pdf> <./figures/results/bounded_results.pdf> <./figures/results/bounded_results_scatter.pdf>] (./conference_101719.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -392,22 +433,24 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[5
+[6] (./conference_101719.aux)
 
-] (./conference_101719.aux) ) 
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 5485 strings out of 480608
- 91423 string characters out of 5903630
- 344555 words of memory out of 5000000
- 21287 multiletter control sequences out of 15000+600000
- 569678 words of font info for 96 fonts, out of 8000000 for 9000
+ 5519 strings out of 480608
+ 92672 string characters out of 5903630
+ 346591 words of memory out of 5000000
+ 21315 multiletter control sequences out of 15000+600000
+ 571099 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,10n,48p,856b,300s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on conference_101719.pdf (5 pages, 265356 bytes).
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on conference_101719.pdf (6 pages, 400923 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 135 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
