@@ -9,6 +9,8 @@
 \usepackage{xcolor}
 \usepackage{csvsimple}
 \usepackage{booktabs}
+\usepackage{algorithm,algorithmic}
+
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -217,6 +219,32 @@ A replay buffer is utilized in the DDPG algorithm to address the issue of ensuri
 
 A copy is made of the actor and critic networks, $Q'(s,a|\theta^{Q'})$ and $\mu'(s|\theta^{\mu'})$ respectively. These are used for calculating the target values. To ensure stability, the weights of these target networks are updated by slowly tracking the learned networks.
 
+\begin{algorithm}
+\caption{DDPG Algorithm \cite{Hunt2016}}
+\begin{algorithmic}[1]
+  \footnotesize
+  \STATE Randomly initialize critic network $Q(s,a|\theta^Q)$ and actor $\mu(s|\theta^\mu)$ with weights $\theta^Q$ and $\theta^\mu$
+  \STATE Initialize target network $Q'$ and $\mu'$ with weights $\theta^{Q'}\leftarrow\theta^Q,\theta^{\mu'}\leftarrow^{\mu}$
+  \STATE Initialize replay buffer $R$
+  \FOR{\texttt{episode=1,M}}
+        \STATE Initialize a random process $\mathcal{N}$ for action exploration
+        \STATE Receive initial observation state $s_1$
+        \FOR{\texttt{t=1,T}}
+        	\STATE Select action $a_t=\mu(s_t|\theta^{\mu})+\mathcal{N}_t$ according to the current policy and exploration noise
+        	\STATE Execute action $a_t$ and observe reward $r_t$ and observe new state $s_{t+1}$
+        	\STATE Store transition $(s_t, a_t, r_t, s_{t+1})$ in $R$
+        	\STATE Sample a random minibatch of $N$ transitions $(s_i, a_i, r_i, s_{i+1})$ from $R$
+        	\STATE Set $y_i=r_i+\gamma Q'(s_{i+1},\mu'(s_{i+1},\mu'(s_{i+1}|\theta^{\mu'})|\theta^{Q'})$
+        	\STATE Update critic by minimizing the loss: $L=\frac{1}{N}\sum_i(y_i-Q(s_i,a_i|\theta^Q))^2$
+        	\STATE Update the actor policy using the sampled policy gradient: $$\triangledown_{\theta^\mu}J\approx \frac{1}{N}\sum_i\triangledown_a Q(s,a|\theta^Q)|_{s=s_i,a=\mu(s_i)}\triangledown_{\theta^\mu}\mu(s|\theta^\mu)|_{s_i}$$
+        	\STATE Update the target networks:
+        	$$\theta^{Q'}\leftarrow\tau\theta^Q+(1-\tau)\theta_{Q'}$$
+        	$$\theta^{\mu'}\leftarrow\tau\theta^\mu+(1-\tau)\theta_{\mu'}$$
+        \ENDFOR
+      \ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
 \subsection{Simulation}
 
 For this work, we utilized the long-term electricity market agent-based model, ElecSim \cite{Kell,Kell2020b}. The model was run using a short term approach by only iterating through a single year (2018), composed of eight representative days, each of 24 time steps.
@@ -268,9 +296,9 @@ We changed the bidding strategy of the selected GenCos, as well as groups of Gen
 
 
 \begin{table}
-\renewcommand{\arraystretch}{1.7}
+\renewcommand{\arraystretch}{1.5}
 \centering
-\begin{tabular}{p{6cm}lllp{0.5cm}}
+\begin{tabular}{p{5cm}lllp{1.5cm}}
 \toprule
 GenCo Groups                                                                                                                  & Capacity & Num. of Plants \\ \midrule
 Orsted                                                                                                                       & 2738.7   & 11               \\
@@ -287,6 +315,7 @@ EDF Energy                                                                      
 \{EDF Energy, \\ RWE Generation SE, SSE, Uniper UK Ltd, Scottish Power, Drax Power Ltd\} & 46929.2  & 216              \\ 
 \bottomrule
 \end{tabular}
+\bigskip
 \caption{Groups of GenCos that used bidding strategies, number of plants and total electricity generting capacity owned.}
 \label{table:genco_table}
 \end{table}
