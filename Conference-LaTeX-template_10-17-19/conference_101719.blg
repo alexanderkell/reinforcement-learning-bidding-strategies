@@ -9,53 +9,52 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: library.bib
 Database file #2: custom_bib.bib
-Warning--I didn't find a database entry for "dukes_511"
-Warning--I didn't find a database entry for "gridwatch"
+Database file #3: custombibtexfile.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty journal in Kell2020b
 
 Done.
-You've used 17 entries,
+You've used 19 entries,
             4087 wiz_defined-function locations,
-            943 strings with 11253 characters,
-and the built_in function-call counts, 13577 in all, are:
-= -- 1127
-> -- 351
+            949 strings with 11483 characters,
+and the built_in function-call counts, 14277 in all, are:
+= -- 1181
+> -- 361
 < -- 124
-+ -- 192
-- -- 59
-* -- 672
-:= -- 2054
-add.period$ -- 34
-call.type$ -- 17
-change.case$ -- 17
++ -- 197
+- -- 61
+* -- 699
+:= -- 2179
+add.period$ -- 38
+call.type$ -- 19
+change.case$ -- 19
 chr.to.int$ -- 294
-cite$ -- 18
-duplicate$ -- 950
-empty$ -- 974
-format.name$ -- 76
-if$ -- 3125
+cite$ -- 20
+duplicate$ -- 1014
+empty$ -- 1045
+format.name$ -- 79
+if$ -- 3281
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 153
-newline$ -- 82
-num.names$ -- 17
-pop$ -- 350
+int.to.str$ -- 19
+missing$ -- 165
+newline$ -- 90
+num.names$ -- 18
+pop$ -- 389
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1033
+skip$ -- 1088
 stack$ -- 0
-substring$ -- 707
-swap$ -- 802
+substring$ -- 709
+swap$ -- 834
 text.length$ -- 26
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 17
+type$ -- 19
 warning$ -- 1
-while$ -- 66
-width$ -- 19
-write$ -- 195
-(There were 3 warnings)
+while$ -- 67
+width$ -- 21
+write$ -- 212
+(There was 1 warning)
