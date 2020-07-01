@@ -10,6 +10,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: library.bib
 Database file #2: custom_bib.bib
 Database file #3: custombibtexfile.bib
+Warning--I didn't find a database entry for "Bell2010"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -18,7 +19,7 @@ Warning--empty journal in Kell2020b
 Done.
 You've used 19 entries,
             4087 wiz_defined-function locations,
-            949 strings with 11483 characters,
+            951 strings with 11499 characters,
 and the built_in function-call counts, 14277 in all, are:
 = -- 1181
 > -- 361
@@ -57,4 +58,4 @@ warning$ -- 1
 while$ -- 67
 width$ -- 21
 write$ -- 212
-(There was 1 warning)
+(There were 2 warnings)
