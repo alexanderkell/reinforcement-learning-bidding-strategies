@@ -10,6 +10,7 @@
 \usepackage{csvsimple}
 \usepackage{booktabs}
 \usepackage{algorithm,algorithmic}
+\usepackage{breqn}
 
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -166,19 +167,23 @@ The expected return after taking an action $a_t$ in state $s_t$ after following 
 	Q^{\pi}(s_t,a_t)=\mathbb{E}_{r_{i\geq t},s_{i>t}\sim \mathcal{E},a_{i>t}\sim\pi}[R_t|s_t,a_t]
 \end{equation}
 
+The action-value function defines the expected expected reward at time $t$, given a state $s_t$ and action $a_t$ when following the policy $\pi$.
 
 \subsection{Q-Learning}
 
  An optimal policy can be derived from the optimal $Q$-values $Q_*(s_t,a_t)=\max_\pi Q_\pi(s_t,a_t)$ by selecting the action corresponding to the highest Q-value in each state.
 
-Many approaches in reinforcement learning use the recursive relationship known as the Bellman equation, as defined in Equation \ref{eq:bellman}.
+Many approaches in reinforcement learning use the recursive relationship known as the Bellman equation, as defined in Equation \ref{eq:bellman}:
 
-\begin{equation}
+\begin{dmath}
 	\label{eq:bellman}
-	Q^\pi(s_t,a_t)=\mathbb{E}_{{r_t},s_{t+1}\sim E} [r(s_t,a_t)+\gamma\mathbb{E}_{a_{t+1}\sim \pi}[Q_\pi(s_{t+1},\pi(s_{t+1}))]]
-\end{equation}
+	Q^\pi(s_t,a_t)=\mathbb{E}_{{r_t},s_{t+1}\sim E} [r(s_t,a_t)+
+	\gamma\mathbb{E}_{a_{t+1}\sim \pi}[Q_\pi(s_{t+1},\pi(s_{t+1}))]].
+\end{dmath}
 
-\noindent The Q-value can therefore be improved by bootstrapping. This is where the current value of the estimate of $Q_\pi$ is used to improve its future estimate, using the known $r(s_t,a_t)$ value. This is the foundation of Q-learning \cite{Gay2007}, a form of \textit{temporal difference} (TD) learning \cite{Sutton2015}, where the update of the Q-value after taking action $a_t$ in state $s_t$ and observing reward $r_t$, which results in state $s_{t+1}$ is:
+\noindent The Bellman equation is equal to the action which maximises the reward plus the discount factor multiplied by the next state's value, by taking action the action after following the policy in state $s_{t+1}$ or $\pi(s_{t+1})$.
+
+The Q-value can therefore be improved by bootstrapping. This is where the current value of the estimate of $Q_\pi$ is used to improve its future estimate, using the known $r(s_t,a_t)$ value. This is the foundation of Q-learning \cite{Gay2007}, a form of \textit{temporal difference} (TD) learning \cite{Sutton2015}, where the update of the Q-value after taking action $a_t$ in state $s_t$ and observing reward $r_t$, which results in state $s_{t+1}$ is:
 \begin{equation}
 	Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha\delta_t
 \end{equation}
@@ -211,7 +216,7 @@ The DPG algorithm maintains a parameterized actor function $\mu(s|\theta^\mu)$ w
 \end{split}
 \end{align}
   
-This is the policy gradient. The policy gradient is the gradient of the policy's performance. 
+This is the policy gradient. The policy gradient is the gradient of the policy's performance. The policy gradient method optimizes the policy directly by updating the weights, $\theta$, in such a way that an optimal policy is eventually found. This is achieved by performing gradient ascent on the policy and its parameters $\pi^\theta$.
 
 Introducing non-linear function approximators, however, means that convergence is no longer guaranteed. Although, these function approximators are required in order to learn and generalize on large state spaces. The Deep Deterministic Gradient Policy (DDPG) modifies the DPG algorithm by using neural network function approximators to learn large state and action spaces online.
 
@@ -223,23 +228,23 @@ A copy is made of the actor and critic networks, $Q'(s,a|\theta^{Q'})$ and $\mu'
 \caption{DDPG Algorithm \cite{Hunt2016}}
 \begin{algorithmic}[1]
   \footnotesize
-  \STATE Randomly initialize critic network $Q(s,a|\theta^Q)$ and actor $\mu(s|\theta^\mu)$ with weights $\theta^Q$ and $\theta^\mu$
-  \STATE Initialize target network $Q'$ and $\mu'$ with weights $\theta^{Q'}\leftarrow\theta^Q,\theta^{\mu'}\leftarrow^{\mu}$
+  \STATE Initialize critic network $Q(s,a|\theta^Q)$ and actor $\mu(s|\theta^\mu)$ with random weights $\theta^Q$ and $\theta^\mu$
+  \STATE Initialize target network $Q'$ and $\mu'$ with weights $\theta^{Q'}\leftarrow\theta^Q,\theta^{\mu'}\leftarrow \theta^{\mu}$
   \STATE Initialize replay buffer $R$
   \FOR{\texttt{episode=1,M}}
         \STATE Initialize a random process $\mathcal{N}$ for action exploration
         \STATE Receive initial observation state $s_1$
         \FOR{\texttt{t=1,T}}
-        	\STATE Select action $a_t=\mu(s_t|\theta^{\mu})+\mathcal{N}_t$ according to the current policy and exploration noise
-        	\STATE Execute action $a_t$ and observe reward $r_t$ and observe new state $s_{t+1}$
+        	\STATE Select action $a_t=\mu(s_t|\theta^{\mu})+\mathcal{N}_t$ according to the policy and exploration noise, $\mathcal{N}_t$
+        	\STATE Execute action $a_t$ and observe reward $r_t$ and new state $s_{t+1}$
         	\STATE Store transition $(s_t, a_t, r_t, s_{t+1})$ in $R$
         	\STATE Sample a random minibatch of $N$ transitions $(s_i, a_i, r_i, s_{i+1})$ from $R$
         	\STATE Set $y_i=r_i+\gamma Q'(s_{i+1},\mu'(s_{i+1},\mu'(s_{i+1}|\theta^{\mu'})|\theta^{Q'})$
-        	\STATE Update critic by minimizing the loss: $L=\frac{1}{N}\sum_i(y_i-Q(s_i,a_i|\theta^Q))^2$
+        	\STATE Update critic by minimizing the loss: $$L=\frac{1}{N}\sum_i(y_i-Q(s_i,a_i|\theta^Q))^2$$
         	\STATE Update the actor policy using the sampled policy gradient: $$\triangledown_{\theta^\mu}J\approx \frac{1}{N}\sum_i\triangledown_a Q(s,a|\theta^Q)|_{s=s_i,a=\mu(s_i)}\triangledown_{\theta^\mu}\mu(s|\theta^\mu)|_{s_i}$$
         	\STATE Update the target networks:
-        	$$\theta^{Q'}\leftarrow\tau\theta^Q+(1-\tau)\theta_{Q'}$$
-        	$$\theta^{\mu'}\leftarrow\tau\theta^\mu+(1-\tau)\theta_{\mu'}$$
+        	$$\theta^{Q'}\leftarrow\tau\theta^Q+(1-\tau)\theta^{Q'}$$
+        	$$\theta^{\mu'}\leftarrow\tau\theta^\mu+(1-\tau)\theta^{\mu'}$$
         \ENDFOR
       \ENDFOR
 \end{algorithmic}
@@ -258,7 +263,7 @@ Figure \ref{fig:model_details} shows how the six fundamental components interact
 
 
 \begin{figure}
-    \includegraphics[width=0.44\textwidth]{figures/methedology/System_overview_large.png}
+    \includegraphics[width=0.44\textwidth]{figures/methedology/system-overview-v2}
     \caption{System overview of ElecSim \cite{Kell}.}
     \label{fig:model_details}
 \end{figure}
@@ -356,9 +361,9 @@ In this work, we assume that the GenCo Groups have no information about the gene
 
 In this section we detail the results of the RL algorithm, and the effect that capacity has on average electricity price within the UK.
 
-Figures \ref{fig:unbounded_timesteps} and \ref{fig:bounded_timesteps} show the rewards over number of time steps for the unbounded and bounded cases respectively. Figure \ref{fig:unbounded_timesteps} shows a clear difference between agents which use the DDPG RL strategy and have a large capacity (light blue) compared to those which have a smaller capacity (dark blue). The axis in Figure \ref{fig:unbounded_timesteps} are much larger than those of \ref{fig:bounded_timesteps}, highlighting the effect of market power on an unbounded market.
+Figures \ref{fig:unbounded_timesteps} and \ref{fig:bounded_timesteps} show the rewards over number of time steps for the unbounded and bounded cases respectively. Figure \ref{fig:unbounded_timesteps} shows a clear difference between agents which use the DDPG RL strategy and have a large capacity (green and yellow) compared to those which have a smaller capacity (dark purple). The axis in Figure \ref{fig:unbounded_timesteps} are much larger than those of \ref{fig:bounded_timesteps}, highlighting the effect of market power on an unbounded market.
 
-The average electricity price for a capacity below 30,000MW remains stable between \textsterling70/MWh and \textsterling100/MWh. This range may be due to the stochasticity in calculating the weights for the DDPG algorithm. The average electricity price does not change over the time steps or training. We therefore hypothesize that there is no market power as long as an individual GenCo owns below 30,000MW of electrical capacity. 
+The average electricity price for a capacity below 30,000MW, or ${\sim35\%}$ of total capacity, remains stable between \textsterling70/MWh and \textsterling100/MWh. This range may be due to the stochasticity in calculating the weights for the DDPG algorithm. The average electricity price does not change over the time steps or training. We therefore hypothesize that there is no market power as long as an individual GenCo owns below ${\sim35\%}$ of total electrical capacity. 
 
 On the other hand, once the capacity of a GenCo or groups of GenCos is above 30,000MW, there is a significant increase in the average electricity price for capacity. The average electricity price for capacity falls between the range of  \textsterling$170$/MWh and \textsterling$220$/MWh. The electricity price is low at the start of training, and ends high, which suggests that the RL strategy has learnt a method of gaining a higher reward.
 
