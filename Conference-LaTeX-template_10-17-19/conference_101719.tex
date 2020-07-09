@@ -11,7 +11,7 @@
 \usepackage{booktabs}
 \usepackage{algorithm,algorithmic}
 \usepackage{breqn}
-
+\usepackage{subcaption}
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -305,7 +305,7 @@ We changed the bidding strategy of the selected GenCos, as well as groups of Gen
 \centering
 \begin{tabular}{p{5cm}lllp{1.5cm}}
 \toprule
-GenCo Groups                                                                                                                  & Capacity & Num. of Plants \\ \midrule
+GenCo Groups                                                                                                                  & Capacity (MW) & Num. of Plants \\ \midrule
 Orsted                                                                                                                       & 2738.7   & 11               \\
 Drax Power Ltd                                                                                                               & 4035.0   & 3                \\
 Scottish power                                                                                                               & 4471.5   & 49               \\
@@ -406,6 +406,52 @@ Figure \ref{fig:bounded_timesteps} shows a cluster between ${\sim}$\textsterling
     \caption{Capacity of agents using RL vs. average electricity price accepted, for bounded agents.}
     \label{fig:bounded_results_scatter}
 \end{figure}
+
+
+
+\begin{figure}[h!]
+\centering
+%\vskip\baselineskip
+\begin{subfigure}[b]{0.45\textwidth}   
+\includegraphics[width=\columnwidth]{figures/results/large_company_capped_150_bids.png}
+\caption{Largest group of GenCos with a total controlled capacity of 46929.2MW.}
+\label{fig:total_Recip_gas_mean_output.eps}
+\end{subfigure}
+%\quad
+%\medskip
+\hfil
+\begin{subfigure}[b]{0.45\textwidth}   
+\includegraphics[width=\columnwidth]{figures/results/small_company_capped_150_bids.png}
+\caption{Smallest company with a total controlled capacity of 2738.7MW.}
+\label{fig:Carbon_emitted_mean_output}
+\end{subfigure}
+\label{fig:nuclear_pv_carbon_totals}
+\caption{Bids made by generator companies with a market cap of \textsterling150/MWh.}
+\end{figure}
+
+
+
+\begin{figure}[h!]
+\centering
+%\vskip\baselineskip
+\begin{subfigure}[b]{0.45\textwidth}   
+\includegraphics[width=\columnwidth]{figures/results/large_company_capped_600_bids.png}
+\caption{Largest group of GenCos with a total controlled capacity of 46929.2MW.}
+\label{fig:total_Recip_gas_mean_output.eps}
+\end{subfigure}
+%\quad
+%\medskip
+\hfil
+\begin{subfigure}[b]{0.45\textwidth}   
+\includegraphics[width=\columnwidth]{figures/results/small_company_capped_600_bids.png}
+\caption{Smallest company with a total controlled capacity of 2738.7MW.}
+\label{fig:Carbon_emitted_mean_output}
+\end{subfigure}
+\label{fig:nuclear_pv_carbon_totals}
+\caption{Bids made by generator companies with a market cap of \textsterling600/MWh.}
+\end{figure}
+
+
 
 
 

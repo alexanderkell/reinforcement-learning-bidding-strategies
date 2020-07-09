@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.22)  2 JUL 2020 12:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.22)  9 JUL 2020 11:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -396,7 +396,52 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \cur@row=\count291
 \cur@col=\count292
 \conditionsep=\skip65
-) (./conference_101719.aux)
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/01/03 v3.4h Customizing captions (AR)
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
+\captionmargin=\dimen266
+\captionmargin@=\dimen267
+\captionwidth=\dimen268
+\caption@tempdima=\dimen269
+\caption@indent=\dimen270
+\caption@parindent=\dimen271
+\caption@hangindent=\dimen272
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \@IEEEtablestring \footnotesize \bgroup \par \centering \@IEEEtabletopskipstrut {\normalfont \footnotesize #1}\\{\normalfont \footnotesize \scshape #2}\par \addvspace {0.5\baselineskip }\egroup \@IEEEtablecaptionsepspace \else \@IEEEfigurecaptionsepspace \setbox \@tempboxa \hbox {\normalfont \footnotesize {#1.}\nobreakspace \nobreakspace #2}\ifdim \wd \@tempboxa >\hsize \setbox \@tempboxa \hbox {\normalfont \footnotesize {#1.}\nobreakspace \nobreakspace }\parbox [t]{\hsize }{\normalfont \footnotesize \noindent \unhbox \@tempboxa #2}\else \ifCLASSOPTIONconference \hbox to\hsize {\normalfont \footnotesize \hfil \box \@tempboxa \hfil }\else \hbox to\hsize {\normalfont \footnotesize \box \@tempboxa \hfil }\fi \fi \fi  on input line 1082.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count293
+\c@continuedfloat=\count294
+Package caption Info: float package is loaded.
+)
+\c@subfigure=\count295
+\c@subtable=\count296
+) (./conference_101719.aux
+
+LaTeX Warning: Label `fig:total_Recip_gas_mean_output.eps' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:total_Recip_gas_mean_output.eps' multiply defined.
+
+
+LaTeX Warning: Label `fig:Carbon_emitted_mean_output' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:Carbon_emitted_mean_output' multiply defined.
+
+
+LaTeX Warning: Label `fig:nuclear_pv_carbon_totals' multiply defined.
+
+)
 \openout1 = `conference_101719.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
@@ -417,16 +462,16 @@ LaTeX Font Info:    ... okay on input line 18.
 -- Lines per column: 56 (exact).
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count293
-\scratchdimen=\dimen266
+\scratchcounter=\count297
+\scratchdimen=\dimen273
 \scratchbox=\box59
-\nofMPsegments=\count294
-\nofMParguments=\count295
+\nofMPsegments=\count298
+\nofMParguments=\count299
 \everyMPshowfont=\toks32
-\MPscratchCnt=\count296
-\MPscratchDim=\dimen267
-\MPnumerator=\count297
-\makeMPintoPDFobject=\count298
+\MPscratchCnt=\count300
+\MPscratchDim=\dimen274
+\MPnumerator=\count301
+\makeMPintoPDFobject=\count302
 \everyMPtoPDFconversion=\toks33
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -434,6 +479,8 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) ABD: EveryShipout initializing macros
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 61.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
@@ -476,7 +523,7 @@ Package pdftex.def Info: figures/methedology/system-overview-v2.png  used on inp
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 316.
 
-Overfull \hbox (4.5271pt too wide) in paragraph at lines 306--324
+Overfull \hbox (27.31897pt too wide) in paragraph at lines 306--324
  [][] 
  []
 
@@ -493,7 +540,7 @@ LaTeX Warning: Command \textsterling invalid in math mode on input line 338.
 
 Missing character: There is no £ in font cmr10!
 
-Underfull \vbox (badness 1997) has occurred while \output is active []
+Underfull \vbox (badness 1377) has occurred while \output is active []
 
 
 Underfull \hbox (badness 4595) in paragraph at lines 366--367
@@ -526,7 +573,34 @@ File: figures/results/bounded_results_scatter.pdf Graphic file (type pdf)
 <use figures/results/bounded_results_scatter.pdf>
 Package pdftex.def Info: figures/results/bounded_results_scatter.pdf  used on input line 405.
 (pdftex.def)             Requested size: 247.6778pt x 164.92467pt.
- [6 <./figures/results/unbounded_results_scatter.pdf> <./figures/results/bounded_results.pdf> <./figures/results/bounded_results_scatter.pdf>] (./conference_101719.bbl)
+<figures/results/large_company_capped_150_bids.png, id=57, 11855.29124pt x 7903.5275pt>
+File: figures/results/large_company_capped_150_bids.png Graphic file (type png)
+<use figures/results/large_company_capped_150_bids.png>
+Package pdftex.def Info: figures/results/large_company_capped_150_bids.png  used on input line 416.
+(pdftex.def)             Requested size: 232.19843pt x 154.72719pt.
+<figures/results/small_company_capped_150_bids.png, id=59, 11855.29124pt x 7903.5275pt>
+File: figures/results/small_company_capped_150_bids.png Graphic file (type png)
+<use figures/results/small_company_capped_150_bids.png>
+Package pdftex.def Info: figures/results/small_company_capped_150_bids.png  used on input line 424.
+(pdftex.def)             Requested size: 232.19843pt x 154.72719pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/results/large_company_capped_600_bids.png, id=60, 11855.29124pt x 7903.5275pt>
+File: figures/results/large_company_capped_600_bids.png Graphic file (type png)
+<use figures/results/large_company_capped_600_bids.png>
+Package pdftex.def Info: figures/results/large_company_capped_600_bids.png  used on input line 438.
+(pdftex.def)             Requested size: 232.19843pt x 154.72719pt.
+<figures/results/small_company_capped_600_bids.png, id=61, 11855.29124pt x 7903.5275pt>
+File: figures/results/small_company_capped_600_bids.png Graphic file (type png)
+<use figures/results/small_company_capped_600_bids.png>
+Package pdftex.def Info: figures/results/small_company_capped_600_bids.png  used on input line 446.
+(pdftex.def)             Requested size: 232.19843pt x 154.72719pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6 <./figures/results/unbounded_results_scatter.pdf> <./figures/results/bounded_results.pdf> <./figures/results/bounded_results_scatter.pdf> <./figures/results/large_company_capped_150_bids.png> <./figures/results/small_company_capped_150_bids.png>] (./conference_101719.bbl [7 <./figures/results/large_company_capped_600_bids.png> <./figures/results/small_company_capped_600_bids.png>])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -538,26 +612,29 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[7
+[8
 
 ] (./conference_101719.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 6483 strings out of 480608
- 105104 string characters out of 5903630
- 363435 words of memory out of 5000000
- 22244 multiletter control sequences out of 15000+600000
- 574266 words of font info for 107 fonts, out of 8000000 for 9000
+ 7671 strings out of 480608
+ 127492 string characters out of 5903630
+ 385795 words of memory out of 5000000
+ 23419 multiletter control sequences out of 15000+600000
+ 573306 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,15n,48p,1075b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,15n,48p,1075b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on conference_101719.pdf (7 pages, 468354 bytes).
+Output written on conference_101719.pdf (8 pages, 3688970 bytes).
 PDF statistics:
- 167 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
+ 179 PDF objects out of 1000 (max. 8388607)
+ 121 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
