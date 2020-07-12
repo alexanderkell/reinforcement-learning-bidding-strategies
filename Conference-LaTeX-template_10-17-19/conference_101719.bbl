@@ -39,6 +39,11 @@ A.~Kell, M.~Forshaw, and A.~S. McGough, ``{Modelling carbon tax in the UK
   Proceedings of the 10th ACM International Conference on Future Energy
   Systems}, no. Ldc, pp. 425--427, 2019.
 
+\bibitem{Hunt2016a}
+J.~J. Hunt, A.~Pritzel, N.~Heess, T.~Erez, Y.~Tassa, D.~Silver, and
+  D.~Wierstra, ``{Continuous learning control with deep reinforcement},''
+  \emph{International Conference on Learning Representations (ICLR)}, 2016.
+
 \bibitem{Ye2020a}
 Y.~Ye, D.~Qiu, M.~Sun, D.~Papadaskalopoulos, and G.~Strbac, ``{Deep
   Reinforcement Learning for Strategic Bidding in Electricity Markets},''

@@ -94,7 +94,7 @@ Reduced competition within electricity markets can lead to higher prices to the 
 
 In this paper, we explore the effect of total controlled capacity on electricity prices. Specifically, we allow different sizes of GenCos and groups of colluding GenCos, to bid strategically to maximize their profit using a reinforcement learning algorithm. This is in contrast to the strategy of bidding the SRMC of their respective power plants. For this, we use deep reinforcement learning (RL) to calculate a bidding strategy for GenCos in a day-ahead market. These GenCos are modelled as agents within the agent-based model, ElecSim \cite{Kell, Kell2020}. We use the UK electricity market instantiated on 2018 as a case study, similar to our work in \cite{Kell2019a}. That is, we model each GenCo with their respective power plants in the year 2018 to 2019. In total, we model 60 GenCos with 1085 power plants.
 
-We use the deep deterministic policy gradient (DDPG) deep RL algorithm, which allows for a continuous action space \cite{Hunt2016}. Conventional RL methods require discretization of state or action spaces and therefore suffer from the curse of dimensionality \cite{Ye2020a}. As the number of discrete states and actions increases, the computational cost grows exponentially. However, too small a number of discrete states and actions will reduce the information available to the GenCos, leading to sub-optimal bidding strategies. Additionally, by using a continuous approach, we allow for GenCos to consider increasingly complex bidding strategies. 
+We use the deep deterministic policy gradient (DDPG) deep RL algorithm, which allows for a continuous action space \cite{Hunt2016a}. Conventional RL methods require discretization of state or action spaces and therefore suffer from the curse of dimensionality \cite{Ye2020a}. As the number of discrete states and actions increases, the computational cost grows exponentially. However, too small a number of discrete states and actions will reduce the information available to the GenCos, leading to sub-optimal bidding strategies. Additionally, by using a continuous approach, we allow for GenCos to consider increasingly complex bidding strategies. 
 
 Other works have considered a simplified model of an electricity market by modelling a small number of GenCos or plants \cite{EsmaeiliAliabadi2017,Tellidou2007}. We, however, model each GenCo as per the UK electricity market with their respective power plants in a day-ahead market. In addition, further work focuses on a bidding strategy to maximize profit for a GenCo. However, in our work, we focus on the impact that large GenCos, or colluding groups of GenCos, can have on the overall electricity price.
 
@@ -206,7 +206,7 @@ However, it is often the case that Q-learning suffers from the curse of dimensio
 \subsection{Deep Deterministic Gradient Policy}
 
 
-It is not straightforward to apply Q-learning to continuous action spaces. This is because in continuous spaces, finding the greedy policy requires an optimization of $a_t$ at every time step. Optimizing for $a_t$ at every time step would be too slow to be practical with large, unconstrained function approximators and nontrivial action spaces \cite{Hunt2016}. To solve this, an actor-critic approach based on the deterministic policy gradient (DPG) algorithm is used \cite{Silver2014}.
+It is not straightforward to apply Q-learning to continuous action spaces. This is because in continuous spaces, finding the greedy policy requires an optimization of $a_t$ at every time step. Optimizing for $a_t$ at every time step would be too slow to be practical with large, unconstrained function approximators and nontrivial action spaces \cite{hunt2016a}. To solve this, an actor-critic approach based on the deterministic policy gradient (DPG) algorithm is used \cite{Silver2014}.
 
 
 The DPG algorithm maintains a parameterized actor function $\mu(s|\theta^\mu)$ which specifies the current policy by deterministically mapping states to a specific action. The critic $Q(s,a)$ is learned using the Bellman equation as in Q-learning. The actor is updated by applying the chain rule to the expected return from the start distribution $J$ with respect to the actor parameters:
@@ -227,7 +227,7 @@ A replay buffer is utilized in the DDPG algorithm to address the issue of ensuri
 A copy is made of the actor and critic networks, $Q'(s,a|\theta^{Q'})$ and $\mu'(s|\theta^{\mu'})$ respectively. These are used for calculating the target values. To ensure stability, the weights of these target networks are updated by slowly tracking the learned networks.
 
 \begin{algorithm}
-\caption{DDPG Algorithm \cite{Hunt2016}}
+\caption{DDPG Algorithm \cite{Hunt2016a}}
 \begin{algorithmic}[1]
   \footnotesize
   \STATE Initialize critic network $Q(s,a|\theta^Q)$ and actor $\mu(s|\theta^\mu)$ with random weights $\theta^Q$ and $\theta^\mu$
@@ -265,7 +265,7 @@ Figure \ref{fig:model_details} shows how the six fundamental components interact
 
 
 \begin{figure}
-    \includegraphics[width=0.44\textwidth]{figures/methedology/system-overview-v2}
+    \includegraphics[width=0.49\textwidth]{figures/methedology/system-overview-v2}
     \caption{System overview of ElecSim \cite{Kell}.}
     \label{fig:model_details}
 \end{figure}
@@ -425,10 +425,10 @@ Figures \ref{fig:large_company_capped_150_bids} shows the bids made by the large
 Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smallest company in the capped scenario. Here, it seems that the GenCo is unable to influence the price at all, and therefore bids \textsterling0/MWh for the majority of the time. This is similar to the expected strategy of GenCos, who tend to bid their short-run marginal cost to ensure that they do not miss out on potential profit.
 
 
-\begin{figure}[h!]
+\begin{figure}
 \centering
 %\vskip\baselineskip
-\begin{subfigure}[b]{0.45\textwidth}   
+\begin{subfigure}[b]{0.49\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/large_company_capped_600_bids.png}
 \caption{Largest group of GenCos with a total controlled capacity of 46929.2MW with a market cap of \textsterling600/MWh.}
 \label{fig:large_company_capped_600_bids}
@@ -436,7 +436,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 %\quad
 %\medskip
 \hfil
-\begin{subfigure}[b]{0.45\textwidth}   
+\begin{subfigure}[b]{0.49\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/small_company_capped_600_bids.png}
 \caption{Smallest company with a total controlled capacity of 2738.7MW with a market cap of \textsterling600/MWh.}
 \label{fig:small_company_capped_600_bids}
@@ -448,10 +448,10 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 
 
 
-\begin{figure}[h!]
+\begin{figure}
 \centering
 %\vskip\baselineskip
-\begin{subfigure}[b]{0.45\textwidth}   
+\begin{subfigure}[b]{0.49\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/large_company_capped_150_bids.png}
 \caption{Largest group of GenCos with a total controlled capacity of 46929.2MW with a market cap of \textsterling150/MWh.}
 \label{fig:large_company_capped_150_bids}
@@ -459,7 +459,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 %\quad
 %\medskip
 \hfil
-\begin{subfigure}[b]{0.45\textwidth}   
+\begin{subfigure}[b]{0.49\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/small_company_capped_150_bids.png}
 \caption{Smallest company with a total controlled capacity of 2738.7MW with a market cap of \textsterling150/MWh.}
 \label{fig:small_company_capped_150_bids}
@@ -501,7 +501,11 @@ This information and approach can help to inform government policy to ensure fai
 
 In this work, we used the deep deterministic policy gradient (DDPG) reinforcement learning method to make strategic bids within an electricity market. We utilized the agent-based model ElecSim to model the UK electricity market. We utilized the DDPG algorithm only for a certain subset of agents, from small individual generation companies (GenCos) to large groups of GenCos. 
 
-This enabled us to explore the ability for GenCos with a large capacity to artificially increase the price of electricity market within the UK if they are in control of a sufficiently large electricity generation capacity. Our results show that the optimum level of control of any single GenCo or groups of GenCo is below ${\sim}$10,000MW or ${\sim}$11\% of the total capacity. Above this, prices begin to increase with no real additional benefit to the consumer. After ${\sim}$25,000MW the prices begin to increase substantially, to ${\sim}$\textsterling200, over triple the original cost without this market power. The introduction of a market cap of \textsterling$150$ reduces all market power and maintains electricity price at a reasonable level.
+This enabled us to explore the ability for GenCos with a large capacity to artificially increase the price of electricity market within the UK if they are in control of a sufficiently large electricity generation capacity. Our results show that the optimum level of control of any single GenCo or groups of GenCo is below ${\sim}$10,000MW or ${\sim}$11\% of the total capacity. Above this, prices begin to increase with no real additional benefit to the consumer. After ${\sim}$25,000MW, or ${\sim}$35\% of the total capacity, the prices begin to increase substantially, to ${\sim}$\textsterling200, over triple the original cost without this market power. The introduction of a market cap of \textsterling$150$ reduces all market power and maintains electricity price at a reasonable level.
+
+Additionally we found through a sensitivity analysis, that the average electricity price in the market over a year remains low with a price cap smaller than \textsterling 190. However, after this level, the average electricity price begins to increase dramatically.
+
+%The bidding strategies of the GenCos which used the reinforcement learning algorithm was to bid both the maximum and minimum price possible. 
 
 Our work has shown the ability for reinforcement learning to learn an optimal bidding strategy to maximize a GenCo's profit within an electricity market. The ability for GenCos to use their market power is also highlighted, and is dependent on electricity generation capacity of the respective GenCo.
 
