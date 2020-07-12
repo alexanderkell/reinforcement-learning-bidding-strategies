@@ -10,7 +10,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: library.bib
 Database file #2: custom_bib.bib
 Database file #3: custombibtexfile.bib
-Warning--I didn't find a database entry for "Bell2010"
+Warning--I didn't find a database entry for "Hunt2016"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -19,43 +19,43 @@ Warning--empty journal in Kell2020b
 Done.
 You've used 19 entries,
             4087 wiz_defined-function locations,
-            951 strings with 11499 characters,
-and the built_in function-call counts, 14277 in all, are:
-= -- 1181
-> -- 361
-< -- 124
-+ -- 197
-- -- 61
-* -- 699
-:= -- 2179
+            953 strings with 11403 characters,
+and the built_in function-call counts, 14152 in all, are:
+= -- 1182
+> -- 341
+< -- 125
++ -- 187
+- -- 56
+* -- 692
+:= -- 2173
 add.period$ -- 38
 call.type$ -- 19
 change.case$ -- 19
 chr.to.int$ -- 294
 cite$ -- 20
-duplicate$ -- 1014
-empty$ -- 1045
-format.name$ -- 79
-if$ -- 3281
+duplicate$ -- 1007
+empty$ -- 1036
+format.name$ -- 74
+if$ -- 3251
 int.to.chr$ -- 0
 int.to.str$ -- 19
-missing$ -- 165
+missing$ -- 161
 newline$ -- 90
 num.names$ -- 18
-pop$ -- 389
+pop$ -- 373
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1088
+skip$ -- 1083
 stack$ -- 0
 substring$ -- 709
-swap$ -- 834
-text.length$ -- 26
+swap$ -- 829
+text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 19
 warning$ -- 1
 while$ -- 67
 width$ -- 21
-write$ -- 212
+write$ -- 213
 (There were 2 warnings)

@@ -39,11 +39,6 @@ A.~Kell, M.~Forshaw, and A.~S. McGough, ``{Modelling carbon tax in the UK
   Proceedings of the 10th ACM International Conference on Future Energy
   Systems}, no. Ldc, pp. 425--427, 2019.
 
-\bibitem{Hunt2016}
-J.~J. Hunt, A.~Pritzel, N.~Heess, T.~Erez, Y.~Tassa, D.~Silver, and
-  D.~Wierstra, ``{Continuous learning control with deep reinforcement},''
-  \emph{International Conference on Learning Representations (ICLR)}, 2016.
-
 \bibitem{Ye2020a}
 Y.~Ye, D.~Qiu, M.~Sun, D.~Papadaskalopoulos, and G.~Strbac, ``{Deep
   Reinforcement Learning for Strategic Bidding in Electricity Markets},''
@@ -77,6 +72,11 @@ J.~{Vijaya Kumar} and D.~M. Kumar, ``{Generation bidding strategy in a pool
   \emph{Applied Soft Computing Journal}, vol.~21, pp. 407--414, 2014. [Online].
   Available: \url{http://dx.doi.org/10.1016/j.asoc.2014.03.027}
 \BIBentrySTDinterwordspacing
+
+\bibitem{Bell2010}
+K.~R. Bell and A.~N. Tleis, ``{Test system requirements for modelling future
+  power systems},'' \emph{IEEE PES General Meeting, PES 2010}, no. August 2010,
+  2010.
 
 \bibitem{Yang2020}
 T.~Yang, L.~Zhao, W.~Li, and A.~Y. Zomaya, ``{Reinforcement learning in
