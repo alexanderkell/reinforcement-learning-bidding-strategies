@@ -225,9 +225,9 @@ This is the policy gradient. The policy gradient is the gradient of the policy's
 
 Introducing non-linear function approximators, however, means that convergence is no longer guaranteed. Although these function approximators are required in order to learn and generalize on large state spaces. The Deep Deterministic Gradient Policy (DDPG) modifies the DPG algorithm by using neural network function approximators to learn large state and action spaces online.
 
-A replay buffer is utilized in the DDPG algorithm to address the issue of ensuring that samples are independently and identically distributed. The replay buffer is a finite-sized cache, $\mathcal{R}$. This is where transitions are samples from the environment through the use of the exploration policy, and the tuple $(s_t,a_t,r_t,s_{t+1})$ is stored in the replay buffer. Old samples are discarded as the replay buffer becomes full. The actor and critic are trained by sampling from the replay buffer uniformly. 
+A replay buffer is utilized in the DDPG algorithm to address the issue of ensuring that samples are independently and identically distributed. The replay buffer is a finite-sized cache, $\mathcal{R}$. Transitions are sampled from the environment through the use of the exploration policy, and the tuple $(s_t,a_t,r_t,s_{t+1})$ is stored within this replay buffer. $\mathcal{R}$ discards older experiences as the replay buffer becomes full. The actor and critic are trained by sampling from $\mathcal{R}$ uniformly. 
 
-A copy is made of the actor and critic networks, $Q'(s,a|\theta^{Q'})$ and $\mu'(s|\theta^{\mu'})$ respectively. These are used for calculating the target values. To ensure stability, the weights of these target networks are updated by slowly tracking the learned networks.
+A copy is made of the actor and critic networks, $Q'(s,a|\theta^{Q'})$ and $\mu'(s|\theta^{\mu'})$ respectively. These are used for calculating the target values. To ensure stability, the weights of these target networks are updated by slowly tracking the learned networks. Pseudo-code of the DDPG algorithm is presented in Algorithm \ref{alg:ddpg}.
 
 \begin{algorithm}
 \caption{DDPG Algorithm \cite{Hunt2016a}}
@@ -253,6 +253,7 @@ A copy is made of the actor and critic networks, $Q'(s,a|\theta^{Q'})$ and $\mu'
         \ENDFOR
       \ENDFOR
 \end{algorithmic}
+\label{alg:ddpg}
 \end{algorithm}
 
 \subsection{Simulation}
@@ -277,7 +278,7 @@ The market has a uniform pricing bidding mechanism. A uniform pricing mechanism 
 
 In this work we explore whether large GenCos, or group of GenCos, can manipulate the price of the electricity market through virtue of their size. We achieve this by allowing a subset of GenCos to bid away from their SRMC and allow them to learn an optimal bidding strategy for maximizing their income. The GenCo agents adopt a DDPG RL algorithm to select their bids. This is to explore whether large GenCos, or a group of GenCos can manipulate the price of the electricity market through market power. The remaining GenCos, which fall outside of this group, maintain a bidding strategy based upon their SRMC.
 
-For the purpose of this work, we do not consider flow constraints within the electricity mix. This is because we model the entire UK with 1000+ generators, and many nodes and buses. This would make the optimization problem intractable for the purpose of our simulation, especially when considering the many episodes required for training. It takes ${\sim}125$ seconds to run a single year in the simulation, or episode with our current setup. By increasing the simulation time further, we would make the compute time intractable due to the many episodes required for reinforcement learning to learn an effective policy. Additionally, we must train several reinforcement learning policies to account for each GenCo. 
+For the purpose of this work, we do not consider flow constraints within the electricity mix. This is because we model the entire UK with 1000+ generators, and many nodes and buses. This would make the optimization problem intractable for the purpose of our simulation, especially when considering the many episodes required for training. It takes ${\sim}125$ seconds to run a single year in the simulation, or episode with our current setup. By increasing the simulation time further, we would make the compute time intractable due to the many episodes required for reinforcement learning to learn an effective policy. Additionally, we must train several reinforcement learning policies to account for each GenCo and market cap. Therefore a simulation that takes ${\sim}$2 minutes to run, run 1000 times takes ${\sim}$33 hours to run, multiplied by 12 different GenCos takes ${\sim}$16 days, and with two market cap scenarios it would take ${\sim}$1 month.
 
 
 
@@ -305,7 +306,7 @@ By modelling bidding decisions as a RL algorithm, we hoped to observe the abilit
 
 
 \begin{table*}
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{1.25}
 \centering
 %\begin{tabular}{p{4.3cm}lllp{1.5cm}}
 \begin{tabular}{llllll}
@@ -370,13 +371,15 @@ Figures \ref{fig:unbounded_timesteps} and \ref{fig:bounded_timesteps} show the r
 
 
 \begin{figure}[htbp]
-    \includegraphics[width=0.48\textwidth]{figures/results/unbounded_results.pdf}
+	\centering
+    \includegraphics[width=0.40\textwidth]{figures/results/unbounded_results.pdf}
     \caption{Reward over time for different groups of GenCos, max bid = \textsterling $600$/MWh.}
     \label{fig:unbounded_timesteps}
 \end{figure}
 
 \begin{figure}[htbp]
-    \includegraphics[width=0.48\textwidth]{figures/results/bounded_results.pdf}
+	\centering
+    \includegraphics[width=0.40\textwidth]{figures/results/bounded_results.pdf}
     \caption{Reward over time for different groups of GenCos, max bid = \textsterling $150$/MWh.}
     \label{fig:bounded_timesteps}
 \end{figure}
@@ -392,7 +395,8 @@ Figure \ref{fig:unbounded_results_scatter} displays the capacity controlled by t
 
 
 \begin{figure}[]
-    \includegraphics[width=0.48\textwidth]{figures/results/unbounded_results_scatter.pdf}
+	\centering
+    \includegraphics[width=0.40\textwidth]{figures/results/unbounded_results_scatter.pdf}
     \caption{Capacity of agents using RL vs. average electricity price accepted, for unbounded agents.}
     \label{fig:unbounded_results_scatter}
 \end{figure}
@@ -406,7 +410,8 @@ Figure \ref{fig:bounded_timesteps} shows a cluster between ${\sim}$\textsterling
 
 
 \begin{figure}
-    \includegraphics[width=0.48\textwidth]{figures/results/bounded_results_scatter.pdf}
+	\centering
+    \includegraphics[width=0.40\textwidth]{figures/results/bounded_results_scatter.pdf}
     \caption{Capacity of agents using RL vs. average electricity price accepted, for bounded agents.}
     \label{fig:bounded_results_scatter}
 \end{figure}
@@ -429,7 +434,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 \begin{figure}
 \centering
 %\vskip\baselineskip
-\begin{subfigure}[b]{0.49\textwidth}   
+\begin{subfigure}[b]{0.40\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/large_company_capped_600_bids.png}
 \caption{Largest group of GenCos with a total controlled capacity of 46929.2MW with a market cap of \textsterling600/MWh.}
 \label{fig:large_company_capped_600_bids}
@@ -437,7 +442,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 %\quad
 %\medskip
 \hfil
-\begin{subfigure}[b]{0.49\textwidth}   
+\begin{subfigure}[b]{0.40\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/small_company_capped_600_bids.png}
 \caption{Smallest company with a total controlled capacity of 2738.7MW with a market cap of \textsterling600/MWh.}
 \label{fig:small_company_capped_600_bids}
@@ -452,7 +457,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 \begin{figure}
 \centering
 %\vskip\baselineskip
-\begin{subfigure}[b]{0.49\textwidth}   
+\begin{subfigure}[b]{0.44\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/large_company_capped_150_bids.png}
 \caption{Largest group of GenCos with a total controlled capacity of 46929.2MW with a market cap of \textsterling150/MWh.}
 \label{fig:large_company_capped_150_bids}
@@ -460,7 +465,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 %\quad
 %\medskip
 \hfil
-\begin{subfigure}[b]{0.49\textwidth}   
+\begin{subfigure}[b]{0.44\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/small_company_capped_150_bids.png}
 \caption{Smallest company with a total controlled capacity of 2738.7MW with a market cap of \textsterling150/MWh.}
 \label{fig:small_company_capped_150_bids}
