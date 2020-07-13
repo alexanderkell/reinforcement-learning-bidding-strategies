@@ -95,7 +95,7 @@ In this paper, we explore the effect of total control over capacity on electrici
 
 We use the deep deterministic policy gradient (DDPG) deep RL algorithm, which allows for a continuous action space \cite{Hunt2016a}. Conventional RL methods require discretization of state or action spaces and therefore suffer from the curse of dimensionality \cite{Ye2020a}. As the number of discrete states and actions increases, the computational cost grows exponentially. However, too small a number of discrete states and actions will reduce the information available to the GenCos, leading to sub-optimal bidding strategies. Additionally, by using a continuous approach, we allow for GenCos to consider increasingly complex bidding strategies. 
 
-Other works have considered a simplified model of an electricity market by modelling a small number of GenCos or plants \cite{EsmaeiliAliabadi2017,Tellidou2007}. We, however, model each GenCo as per the UK electricity market with their respective power plants in a day-ahead market. In addition, further work focuses on a bidding strategy to maximize profit for a GenCo. However, in our work, we focus on the impact that large GenCos, or colluding groups of GenCos, can have on the overall electricity price.
+Other works have considered a simplified model of an electricity market by modelling a small number of GenCos or plants \cite{EsmaeiliAliabadi2017,Tellidou2007}. We, however, model each GenCo as per the UK electricity market with their respective power plants in a day-ahead market. In addition, further work focuses on a bidding strategy to maximize profit for a GenCo. However, in our work, we focus on the impact that large GenCos, or colluding groups of GenCos, can have on electricity price.
 
 
 Our approach does not require GenCos to formulate any knowledge of the data which informs the market-clearing algorithm or rival GenCo bidding strategies, unlike in game-theoretic approaches \cite{Wang2011}. This enables a more realistic simulation where the strategy of rival GenCos are unknown.
@@ -129,7 +129,7 @@ Intelligent bidding strategies for day-ahead electricity markets can be divided 
 
 \subsection{Game-theoretic approaches}
 
-Here, we explore game-theoretic approaches. Kumar \textit{et al.} propose a Shuffled Frog Leaping Algorithm (SFLA) \cite{VijayaKumar2014} to find bidding strategies for GenCos in electricity markets. SFLA is a meta-heuristic that is based on the evolution of memes carried by active individuals, as well as a global exchange of information among the frog population. They test the effectiveness of the SFLA algorithm on an IEEE 30-bus system and a practical 75-bus Indian system. A bus in a power system is a vertical line which several components are connected in a power system. For example, generators, loads, and feeders can all be connected to a bus. Kumar \textit{et al.} find superior results when compared to particle swarm optimization and the genetic algorithm with respect to total profit and convergence with CPU time. They assume that each GenCo bids a linear supply function, and they model the expectation of bids from rivals as a joint normal distribution. In contrast to their work, we do not require an estimation of the rivals bids.
+Here, we explore game-theoretic approaches. Kumar \textit{et al.} propose a Shuffled Frog Leaping Algorithm (SFLA) \cite{VijayaKumar2014} to find bidding strategies for GenCos in electricity markets. SFLA is a meta-heuristic that is based on the evolution of memes carried by active individuals, as well as a global exchange of information among the frog population. They test the effectiveness of the SFLA algorithm on an IEEE 30-bus system and a practical 75-bus Indian system. A bus in a power system is a vertical line which several components are connected in a power system. For example, generators, loads, and feeders can all be connected to a bus. Kumar \textit{et al.} find superior results when compared to particle swarm optimization and the genetic algorithm with respect to total profit and convergence with CPU time. They assume that each GenCo bids a linear supply function, and model the expectation of bids from rivals as a joint normal distribution. In contrast to their work, we do not require an estimation of the rivals bids.
 
 Wang \textit{et al.} propose an evolutionary imperfect information game approach to analyzing bidding strategies with price-elastic demand \cite{Wang2011}. Their evolutionary approach allows for GenCos to adapt and update their beliefs about an opponents' bidding strategy during the simulation. They model a 2-bus system with three GenCos. Our work, however, models a simulation with 60 GenCos across the entire UK, which would require a 28-bus system model \cite{Bell2010}. 
 
@@ -140,7 +140,7 @@ Next, we explore reinforcement learning approaches used to make intelligent bidd
 
 Aliabadi \textit{et al.} utilize an ABM and the Q-learning algorithm to study the impact of learning and risk aversion on GenCos in an oligopolistic electricity market with five GenCos \cite{EsmaeiliAliabadi2017}. They find that some level of risk aversion is beneficial, however excessive risk degrades profits by causing an intense price competition. Our paper focuses on the impact of the interaction of many GenCos within the UK electricity market. In addition, we extend the Q-learning algorithm to use the DDPG algorithm, which uses a continuous action space.
 
-Bertrand \textit{et al.} use RL in a continuous intraday market \cite{Bertrand2019}. Specifically, they use the REINFORCE algorithm to optimize the choice of price thresholds. The REINFORCE algrorithm is a gradient-based method. They demonstrate an ability to outperform the traditionally used method, the rolling intrinsic method, by increasing profit per day by 4.2\%. The rolling intrinsic method accepts any trade, which gives a positive profit if the contracted quantity remains in the bounds of capacity. In our paper, we model a day-ahead market and use a continuous action for price bids, as opposed to a discrete threshold.
+Bertrand \textit{et al.} use RL in an intraday market \cite{Bertrand2019}. Specifically, they use the REINFORCE algorithm to optimize the choice of price thresholds. The REINFORCE algrorithm is a gradient-based method. They demonstrate an ability to outperform the traditionally used method, the rolling intrinsic method, by increasing profit per day by 4.2\%. The rolling intrinsic method accepts any trade, which gives a positive profit if the contracted quantity remains in the bounds of capacity. In our paper, we model a day-ahead market and use a continuous action for price bids.
 
 Ye \textit{et al.} propose a novel deep RL based methodology which combines the DDPG algorithm with a prioritized experience replay (PER) strategy \cite{Ye2020a}. The PER samples from previous experience, but samples from the ``important'' ones more often \cite{Schaul2016}. The PER is a modification of the often used experience buffer, which is a buffer which stores previous transitions and samples uniformly. This helps to reduce the correlations between recent experiences. They use a day-ahead market with hourly resolution and show that they are able to achieve approximately 41\%, 20\% and 11\% higher profit for the GenCo than the MPEC, Q-learning and DQN methods, respectively. In our paper, we instead look at how to prevent GenCos (or sets of colluding GenCos) from forcing higher prices above market rates.
 
@@ -166,12 +166,10 @@ In RL an agent interacts with an environment to maximize its cumulative reward. 
 An agent's behaviour is defined by a policy, $\pi$. $\pi$ maps states to a probability distribution over the actions $\pi:\mathcal{S}\rightarrow \mathcal{P}(\mathcal{A})$. The return from a state is defined as the sum of discounted future reward $R_t=\sum_{i=t}^T\gamma^{(i-t)}r(s_i,a_i)$. Where $\gamma$ is a discounting factor $\gamma \in [0,1]$. The return is dependent on the action chosen, which is dependent on the policy $\pi$. The goal in reinforcement learning is to learn a policy that maximizes the expected return from the start distribution $J=\mathbb{E}_{r_i,s_i \sim E,a_i \sim \pi}[R_1]$. 
 
 The expected return after taking an action $a_t$ in state $s_t$ after following policy $\pi$ can be found by the action-value function. The action-value function is used in many reinforcement learning algorithms and is defined in Equation \ref{eq:action-value}.
-
 \begin{equation}
 	\label{eq:action-value}
 	Q^{\pi}(s_t,a_t)=\mathbb{E}_{r_{i\geq t},s_{i>t}\sim \mathcal{E},a_{i>t}\sim\pi}[R_t|s_t,a_t].
 \end{equation}
-
 \noindent The action-value function defines the expected reward at time $t$, given a state $s_t$ and action $a_t$ when under the policy $\pi$.
 
 \subsection{Q-Learning}
@@ -179,26 +177,21 @@ The expected return after taking an action $a_t$ in state $s_t$ after following 
  An optimal policy can be derived from the optimal $Q$-values $Q_*(s_t,a_t)=\max_\pi Q_\pi(s_t,a_t)$ by selecting the action corresponding to the highest Q-value in each state.
 
 Many approaches in reinforcement learning use the recursive relationship known as the Bellman equation, as defined in Equation \ref{eq:bellman}:
-
 \begin{dmath}
 	\label{eq:bellman}
 	Q^\pi(s_t,a_t)=\mathbb{E}_{{r_t},s_{t+1}\sim E} [r(s_t,a_t)+
 	\gamma\mathbb{E}_{a_{t+1}\sim \pi}[Q_\pi(s_{t+1},\pi(s_{t+1}))]].
 \end{dmath}
-
 \noindent The Bellman equation is equal to the action which maximizes the reward plus the discount factor multiplied by the next state's value, by taking the action after following the policy in state $s_{t+1}$ or $\pi(s_{t+1})$.
 
 The Q-value can therefore be improved by bootstrapping. This is where the current value of the estimate of $Q_\pi$ is used to improve its future estimate, using the known $r(s_t,a_t)$ value. This is the foundation of Q-learning \cite{Gay2007}, a form of \textit{temporal difference} (TD) learning \cite{Sutton2015}, where the update of the Q-value after taking action $a_t$ in state $s_t$ and observing reward $r_t$, which results in state $s_{t+1}$ is:
 \begin{equation}
 	Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha\delta_t
 \end{equation}
-
 \noindent where,
-
 \begin{equation}
 	\delta_t=r_t+\gamma\max_{a_{t+1}}Q(s_{t+1},a_{t+1})-Q(s_{t},a_t)
 \end{equation}
-
 \noindent $\alpha\in [0,1]$ is the step size, $\delta_t$ represents the correction for the estimation of the Q-value function and $r_t+\gamma\max_{a_{t+1}}Q(s_{t+1},a_{t+1})$ represents the target Q-value at time step $t$.	
 
 
@@ -213,14 +206,13 @@ It is not straightforward to apply Q-learning to continuous action spaces. This 
 
 
 The DPG algorithm maintains a parameterized actor function $\mu(s|\theta^\mu)$ which specifies the current policy by deterministically mapping states to a specific action. The critic $Q(s,a)$ is learned using the Bellman equation as in Q-learning. The actor is updated by applying the chain rule to the expected return from the start distribution $J$ with respect to the actor parameters:
-
 \begin{align}
 \begin{split}
 	\triangledown_{\theta^\mu}J\approx\mathbb{E}_{s_t\sim\rho^\beta}[\triangledown_{\theta^\mu}Q(s,a|\theta^Q)|_{s=s_t,a=\mu(s_t|\theta^\mu)}] \\
 	= \mathbb{E}_{s_t\sim\rho^\beta}[\triangledown_aQ(s,a|\theta^Q)|_{s=s_t,a=\mu(s_t)}\triangledown_{\theta_\mu}\mu(s|\theta^\mu)|_{s=s_t}]
 \end{split}
 \end{align}
-  
+ 
 This is the policy gradient. The policy gradient is the gradient of the policy's performance. The policy gradient method optimizes the policy directly by updating the weights, $\theta$, in such a way that an optimal policy is found within finite time. This is achieved by performing gradient ascent on the policy and its parameters $\pi^\theta$.
 
 Introducing non-linear function approximators, however, means that convergence is no longer guaranteed. Although these function approximators are required in order to learn and generalize on large state spaces. The Deep Deterministic Gradient Policy (DDPG) modifies the DPG algorithm by using neural network function approximators to learn large state and action spaces online.
@@ -258,7 +250,7 @@ A copy is made of the actor and critic networks, $Q'(s,a|\theta^{Q'})$ and $\mu'
 
 \subsection{Simulation}
 
-We utilized the long-term electricity market agent-based model, ElecSim \cite{Kell,Kell2020b}. The model was run using a short term approach by only iterating through a single year (2018), composed of eight representative days, each of 24 time steps.
+We utilized the long-term electricity market agent-based model, ElecSim \cite{Kell,Kell2020}. The model was run using a short term approach by only iterating through a single year (2018), composed of eight representative days, each of 24 time steps.
 
 ElecSim is made up of six components: 1) power plant data; 2) scenario data; 3) the time steps of the algorithm; 4) the power exchange; 5) the investment algorithm and 6) the generation companies (GenCos) as agents. For this paper, we ignore the investment algorithm, due to investments happening only once a year, and not in the first year of operation. 
 
@@ -326,19 +318,17 @@ EDF Energy                                                                      
 \{EDF Energy, RWE Generation SE, SSE, Uniper UK Ltd, Scottish Power, Drax Power Ltd\} & 46929.2  & 216              \\ 
 \bottomrule
 \end{tabular}
-\bigskip
+%\bigskip
 \caption{Groups of GenCos that used bidding strategies, number of plants and total electricity generating capacity.}
 \label{table:genco_table}
 \end{table*}
 
 
 For the reinforcement learning problem we have the following tuple: $(s_t,a_t,r_t,s_{t+1})$, where $(s_t, s_{t+1})$ is the state at time $t$ and $t+1$ respectively, $a_t$ is the action at time $t$ and $r_t$ is the reward at time $t$. For our problem the state space is given by the tuple shown in Equation \ref{eq:observation_tuple}:
-
 \begin{equation}
 \label{eq:observation_tuple}
 	s_t=(H_i,D_i,p_{C02},p_{gas},p_{coal},p_{c})
 \end{equation}
-
 \noindent where $H_i$ is the segment hour to bid into at timestep $i$, $D_i$ is the demand of the segment hour at timestep $t$, $p_{gas}$ is the price of gas, $p_{coal}$ the price of coal, $p_{C02}$ is the carbon tax price, and $p_{c}$ is the clearing price. We set the reward, $r_t$ to be the average electricity price of that time step, $p_{avg}$.
 
 For the action space, $a_t$, we modelled two scenarios. Where there was a price cap of \textsterling$150$/MWh and \textsterling$600$/MWh. Only these two values were chosen to reduce computational load. We chose \textsterling$150$/MWh as a reasonable price cap that may be introduced by a Government. This was roughly double the average accepted price in 2018, therefore allowed for higher prices in times of high demand or low supply. The $\textsterling 600$/MWh was chosen to simulate an unbounded price cap. This enabled us to see the price that an equilibrium is reached within a market with agents with market power. 
@@ -370,14 +360,14 @@ In this section, we detail the results of the RL algorithm, and the effect that 
 Figures \ref{fig:unbounded_timesteps} and \ref{fig:bounded_timesteps} show the rewards over a number of time steps for the unbounded and bounded cases respectively. Figure \ref{fig:unbounded_timesteps} shows a clear difference between agents which use the DDPG RL strategy and have a large capacity (green and yellow) compared to those which have a smaller capacity (dark purple). The axis in Figure \ref{fig:unbounded_timesteps} are much larger than those of \ref{fig:bounded_timesteps}, highlighting the effect of market power on an unbounded market.
 
 
-\begin{figure}[htbp]
+\begin{figure}
 	\centering
     \includegraphics[width=0.40\textwidth]{figures/results/unbounded_results.pdf}
     \caption{Reward over time for different groups of GenCos, max bid = \textsterling $600$/MWh.}
     \label{fig:unbounded_timesteps}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}
 	\centering
     \includegraphics[width=0.40\textwidth]{figures/results/bounded_results.pdf}
     \caption{Reward over time for different groups of GenCos, max bid = \textsterling $150$/MWh.}
@@ -457,7 +447,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 \begin{figure}
 \centering
 %\vskip\baselineskip
-\begin{subfigure}[b]{0.44\textwidth}   
+\begin{subfigure}[b]{0.4\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/large_company_capped_150_bids.png}
 \caption{Largest group of GenCos with a total controlled capacity of 46929.2MW with a market cap of \textsterling150/MWh.}
 \label{fig:large_company_capped_150_bids}
@@ -465,7 +455,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 %\quad
 %\medskip
 \hfil
-\begin{subfigure}[b]{0.44\textwidth}   
+\begin{subfigure}[b]{0.4\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/small_company_capped_150_bids.png}
 \caption{Smallest company with a total controlled capacity of 2738.7MW with a market cap of \textsterling150/MWh.}
 \label{fig:small_company_capped_150_bids}
@@ -474,8 +464,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 \label{fig:capped_150_bids}
 \end{figure}
 
-We ran a sensitivity analysis to observe the effects of the market cap on final average accepted bid price. We allowed the largest GenCo group to use a strategy for this sensitivity analysis. Figure \ref{fig:sensitivity_analysis} displays the results. It seems that whilst the average accepted bid price increased with the capped bid level; there is a significant increase after a market cap of \textsterling200/MWh. This may be due to the case that the GenCos begin to outbid the traditional GenCos at this price point for the majority of the time. 
-
+We ran a sensitivity analysis to observe the effects of the market cap on final average accepted bid price. The largest GenCo group used a strategy for this sensitivity analysis. Figure \ref{fig:sensitivity_analysis} displays the results. It seems that whilst the average accepted bid price increased with the capped bid level; there is a significant increase after a market cap of \textsterling190/MWh. This may be due to the case that the GenCos begin to outbid the SRMC bidding GenCos at this price point.
 \begin{figure}
     \includegraphics[width=0.48\textwidth]{figures/results/sensitivity_analysis.png}
     \caption{Capacity of agents using RL vs. average electricity price accepted, for bounded agents.}
@@ -496,7 +485,7 @@ Our results demonstrate the ability for GenCos to artificially increase the elec
 
 However, if there is an electricity market with a few large or colluding players, it is possible to remove their advantage through the introduction of a price cap. Our results show that whilst average accepted bids increase with market cap level, the value does not increase significantly until \textsterling$200$ is reached.
 
-We ran a sensitivity analysis of the market cap and found that a market cap below \textsterling190 was required to maintain a competitive market. After this, the average electricity price increases significantly. 
+%We ran a sensitivity analysis of the market cap and found that a market cap below \textsterling190 was required to maintain a competitive market. After this, the average electricity price increases significantly. 
 
 This information and approach can help to inform government policy to ensure fair competition within electricity markets, as well as run the model for their own scenario. It is hypothesized that the findings in this paper are generalizable to other decentralized electricity markets in other geographies due to their similar market structures. Whilst the figures presented here may not be the same; we hypothesize that the region of interest will be similar.
 
@@ -509,9 +498,9 @@ This information and approach can help to inform government policy to ensure fai
 
 In this work, we used the deep deterministic policy gradient (DDPG) reinforcement learning method to make strategic bids within an electricity market. We utilized the agent-based model ElecSim to model the UK electricity market. We utilized the DDPG algorithm only for a certain subset of agents, from small individual generation companies (GenCos) to large groups of GenCos. 
 
-This enabled us to explore the ability for GenCos with a large capacity to artificially increase the price of electricity market within the UK if they are in control of a sufficiently large electricity generation capacity. Our results show that the optimum level of control of any single GenCo or groups of GenCo is below ${\sim}$10,000MW or ${\sim}$11\% of the total capacity. Above this, prices begin to increase with no real additional benefit to the consumer. After ${\sim}$25,000MW, or ${\sim}$35\% of the total capacity, the prices begin to increase substantially, to ${\sim}$\textsterling200, over triple the original cost without this market power. The introduction of a market cap of \textsterling$150$ reduces all market power and maintains electricity price at a reasonable level.
+This enabled us to explore the ability for GenCos with a large capacity to artificially increase the price in the electricity market within the UK if they are in control of a sufficiently large generation capacity. Our results show that the optimum level of control of any single GenCo or groups of GenCo is below ${\sim}$10,000MW or ${\sim}$11\% of the total capacity. Above this, prices begin to increase with no real additional benefit to the consumer. After ${\sim}$25,000MW, or ${\sim}$35\% of the total capacity, the prices begin to increase substantially, to ${\sim}$\textsterling200, over triple the original cost without this market power. The introduction of a market cap of \textsterling$150$ reduces all market power and maintains electricity price at a reasonable level.
 
-Additionally we found through a sensitivity analysis, that the average electricity price in the market over a year remains low with a price cap smaller than \textsterling 190. However, after this level, the average electricity price begins to increase dramatically.
+We found through a sensitivity analysis, that the average electricity price in the market over a year remains low with a price cap smaller than \textsterling 190. However, after this level, the average electricity price begins to increase.
 
 %The bidding strategies of the GenCos which used the reinforcement learning algorithm was to bid both the maximum and minimum price possible. 
 

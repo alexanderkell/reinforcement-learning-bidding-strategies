@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: /Users/alexanderkell/Documents/PhD/Papers/8-intelligent-bidding/Conference-LaTeX-template_10-17-19/conference_101719.aux
 Case mismatch error between cite keys hunt2016a and Hunt2016a
----line 28 of file /Users/alexanderkell/Documents/PhD/Papers/8-intelligent-bidding/Conference-LaTeX-template_10-17-19/conference_101719.aux
+---line 30 of file /Users/alexanderkell/Documents/PhD/Papers/8-intelligent-bidding/Conference-LaTeX-template_10-17-19/conference_101719.aux
  : \citation{hunt2016a
  :                    }
 I'm skipping whatever remains of this command
@@ -18,48 +18,47 @@ Database file #3: custombibtexfile.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
-Warning--empty journal in Kell2020b
 
 Done.
-You've used 21 entries,
+You've used 20 entries,
             4087 wiz_defined-function locations,
-            962 strings with 11864 characters,
-and the built_in function-call counts, 15156 in all, are:
-= -- 1257
-> -- 379
-< -- 126
-+ -- 205
-- -- 65
-* -- 739
-:= -- 2341
-add.period$ -- 42
-call.type$ -- 21
-change.case$ -- 21
-chr.to.int$ -- 294
-cite$ -- 22
-duplicate$ -- 1092
-empty$ -- 1121
-format.name$ -- 85
-if$ -- 3477
+            955 strings with 11616 characters,
+and the built_in function-call counts, 14371 in all, are:
+= -- 1187
+> -- 361
+< -- 120
++ -- 196
+- -- 62
+* -- 692
+:= -- 2199
+add.period$ -- 40
+call.type$ -- 20
+change.case$ -- 20
+chr.to.int$ -- 279
+cite$ -- 20
+duplicate$ -- 1044
+empty$ -- 1071
+format.name$ -- 81
+if$ -- 3306
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 179
-newline$ -- 96
-num.names$ -- 20
-pop$ -- 421
+int.to.str$ -- 20
+missing$ -- 171
+newline$ -- 87
+num.names$ -- 19
+pop$ -- 402
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1159
+skip$ -- 1102
 stack$ -- 0
-substring$ -- 711
-swap$ -- 882
-text.length$ -- 28
+substring$ -- 676
+swap$ -- 842
+text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 21
-warning$ -- 1
-while$ -- 69
-width$ -- 23
-write$ -- 230
+type$ -- 20
+warning$ -- 0
+while$ -- 64
+width$ -- 22
+write$ -- 213
 (There was 1 error message)

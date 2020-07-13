@@ -50,12 +50,9 @@ Y.~Ye, D.~Qiu, M.~Sun, D.~Papadaskalopoulos, and G.~Strbac, ``{Deep
   \emph{IEEE Transactions on Smart Grid}, vol.~11, no.~2, pp. 1343--1355, 2020.
 
 \bibitem{EsmaeiliAliabadi2017}
-\BIBentryALTinterwordspacing
 D.~{Esmaeili Aliabadi}, M.~Kaya, and G.~Sahin, ``{Competition, risk and
   learning in electricity markets: An agent-based simulation study},''
-  \emph{Applied Energy}, vol. 195, pp. 1000--1011, 2017. [Online]. Available:
-  \url{http://dx.doi.org/10.1016/j.apenergy.2017.03.121}
-\BIBentrySTDinterwordspacing
+  \emph{Applied Energy}, vol. 195, pp. 1000--1011, 2017.
 
 \bibitem{Tellidou2007}
 A.~C. Tellidou and A.~G. Bakirtzis, ``{Agent-based analysis of monopoly power
@@ -71,12 +68,9 @@ J.~Wang, Z.~Zhou, and A.~Botterud, ``{An evolutionary game approach to
 \BIBentrySTDinterwordspacing
 
 \bibitem{VijayaKumar2014}
-\BIBentryALTinterwordspacing
 J.~{Vijaya Kumar} and D.~M. Kumar, ``{Generation bidding strategy in a pool
   based electricity market using Shuffled Frog Leaping Algorithm},''
-  \emph{Applied Soft Computing Journal}, vol.~21, pp. 407--414, 2014. [Online].
-  Available: \url{http://dx.doi.org/10.1016/j.asoc.2014.03.027}
-\BIBentrySTDinterwordspacing
+  \emph{Applied Soft Computing Journal}, vol.~21, pp. 407--414, 2014.
 
 \bibitem{Bell2010}
 K.~R. Bell and A.~N. Tleis, ``{Test system requirements for modelling future
@@ -115,13 +109,6 @@ R.~S. Sutton and A.~G. Barto, ``{An introduction to reinforcement learning},''
 D.~Silver, G.~Lever, N.~Heess, T.~Degris, D.~Wierstra, and M.~Riedmiller,
   ``{Deterministic policy gradient algorithms},'' \emph{31st International
   Conference on Machine Learning, ICML 2014}, vol.~1, pp. 605--619, 2014.
-
-\bibitem{Kell2020b}
-\BIBentryALTinterwordspacing
-A.~J.~M. Kell, M.~Forshaw, and A.~S. McGough, ``{Long-term electricity market
-  agent based model validation using genetic algorithm based optimization},''
-  pp. 1--13, 2020. [Online]. Available: \url{http://arxiv.org/abs/2005.10346}
-\BIBentrySTDinterwordspacing
 
 \bibitem{dukes_511}
 D.~for Business~Energy and I.~Strategy, ``Power stations in the united kingdom,
