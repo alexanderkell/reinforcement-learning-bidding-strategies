@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: /Users/alexanderkell/Documents/PhD/Papers/8-intelligent-bidding/Conference-LaTeX-template_10-17-19/conference_101719.aux
 Case mismatch error between cite keys hunt2016a and Hunt2016a
----line 27 of file /Users/alexanderkell/Documents/PhD/Papers/8-intelligent-bidding/Conference-LaTeX-template_10-17-19/conference_101719.aux
+---line 30 of file /Users/alexanderkell/Documents/PhD/Papers/8-intelligent-bidding/Conference-LaTeX-template_10-17-19/conference_101719.aux
  : \citation{hunt2016a
  :                    }
 I'm skipping whatever remains of this command
@@ -21,45 +21,45 @@ Database file #3: custombibtexfile.bib
 Warning--empty journal in Kell2020b
 
 Done.
-You've used 20 entries,
+You've used 21 entries,
             4087 wiz_defined-function locations,
-            956 strings with 11643 characters,
-and the built_in function-call counts, 14716 in all, are:
-= -- 1219
-> -- 370
-< -- 125
-+ -- 201
-- -- 63
-* -- 719
-:= -- 2260
-add.period$ -- 40
-call.type$ -- 20
-change.case$ -- 20
+            962 strings with 11864 characters,
+and the built_in function-call counts, 15156 in all, are:
+= -- 1257
+> -- 379
+< -- 126
++ -- 205
+- -- 65
+* -- 739
+:= -- 2341
+add.period$ -- 42
+call.type$ -- 21
+change.case$ -- 21
 chr.to.int$ -- 294
-cite$ -- 21
-duplicate$ -- 1053
-empty$ -- 1083
-format.name$ -- 82
-if$ -- 3379
+cite$ -- 22
+duplicate$ -- 1092
+empty$ -- 1121
+format.name$ -- 85
+if$ -- 3477
 int.to.chr$ -- 0
-int.to.str$ -- 20
-missing$ -- 172
-newline$ -- 93
-num.names$ -- 19
-pop$ -- 405
+int.to.str$ -- 21
+missing$ -- 179
+newline$ -- 96
+num.names$ -- 20
+pop$ -- 421
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1123
+skip$ -- 1159
 stack$ -- 0
-substring$ -- 710
-swap$ -- 858
-text.length$ -- 27
+substring$ -- 711
+swap$ -- 882
+text.length$ -- 28
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 20
+type$ -- 21
 warning$ -- 1
-while$ -- 68
-width$ -- 22
-write$ -- 221
+while$ -- 69
+width$ -- 23
+write$ -- 230
 (There was 1 error message)
