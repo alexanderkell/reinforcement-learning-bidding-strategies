@@ -1,11 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: /Users/alexanderkell/Documents/PhD/Papers/8-intelligent-bidding/Conference-LaTeX-template_10-17-19/conference_101719.aux
-Case mismatch error between cite keys hunt2016a and Hunt2016a
----line 30 of file /Users/alexanderkell/Documents/PhD/Papers/8-intelligent-bidding/Conference-LaTeX-template_10-17-19/conference_101719.aux
- : \citation{hunt2016a
- :                    }
-I'm skipping whatever remains of this command
 The style file: IEEEtran.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -61,4 +56,3 @@ warning$ -- 0
 while$ -- 64
 width$ -- 22
 write$ -- 213
-(There was 1 error message)
