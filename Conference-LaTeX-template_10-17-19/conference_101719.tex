@@ -64,9 +64,9 @@ Newcastle upon Tyne, U.K. \\
 
 % Background
 
-Decentralized electricity markets are often dominated by a small set of generator companies who control the majority of the capacity. In this paper, we explore the effect of the total controlled electricity capacity by any single, or group of generator companies, on the average electricity price. We demonstrate this through an application with ElecSim, a simulation of a country-wide energy market. We develop an agent, representing a generation company, which uses a deep deterministic policy gradient reinforcement learning algorithm to bid in a uniform pricing electricity market strategically. A uniform pricing market is one where all players are paid the highest accepted price. ElecSim is parameterized to the United Kingdom for the year 2018. This work can help inform policy on how to best regulate a market to ensure that the price of electricity remains competitive.
+Decentralized electricity markets are often dominated by a small set of generator companies who control the majority of the capacity. In this paper, we explore the effect of the total controlled electricity capacity by a single, or group of generator companies, can have on the average electricity price. We demonstrate this through the use of ElecSim, a simulation of a country-wide energy market. We develop a strategic agent, representing a generation company, which uses a deep deterministic policy gradient reinforcement learning algorithm to bid in a uniform pricing electricity market. A uniform pricing market is one where all players are paid the highest accepted price. ElecSim is parameterized to the United Kingdom for the year 2018. This work can help inform policy on how to best regulate a market to ensure that the price of electricity remains competitive.
 
-We find that capacity has an impact on the average electricity price in a single year. If any single generator company, or a collaborating group of generator companies, control more than ${\sim}$11$\%$ of generation capacity, prices begin to increase by ${\sim}$25$\%$. The value of ${\sim}$25\% and ${\sim}$11\% may vary between market structures and countries. For instance, different load profiles may favour a particular type of generator or a different distribution of generation capacity. Once the capacity controlled by a generator company is higher than ${\sim}$35\% of the total capacity, prices increase exponentially. The use of a market cap of approximately double the average market price has the effect of significantly decreasing this effect and maintaining a competitive market. A fair and competitive electricity market provides value to consumers and enables a more competitive economy through the utilisation of electricity by both industry and consumers.
+We find that capacity has an impact on the average electricity price in a single year. If any single generator company, or a collaborating group of generator companies, control more than ${\sim}$11$\%$ of generation capacity and bid strategically, prices begin to increase by ${\sim}$25$\%$. The value of ${\sim}$25\% and ${\sim}$11\% may vary between market structures and countries. For instance, different load profiles may favour a particular type of generator or a different distribution of generation capacity. Once the capacity controlled by a generator company, which bids strategically, is higher than ${\sim}$35\%, prices increase exponentially. We observe that the use of the a market cap of approximately double the average market price has the effect of significantly decreasing this effect and maintaining a competitive market. A fair and competitive electricity market provides value to consumers and enables a more competitive economy through the utilisation of electricity by both industry and consumers.
 
 % Methodology
 
@@ -84,13 +84,13 @@ deep reinforcement learning, bidding strategy, multi-agent system, electricity m
 \section{Introduction}
 \label{sec:introduction}
 
-In this paper, we use a monte-carlo simulation to model a decentralized electricity market. Decentralized electricity markets have a number of different market structures: day-ahead, balancing market and reserve markets. The day-ahead market settles payments for electricity for the following day. The balancing market is designed to regulate the frequency of the market through matching supply and demand. Whereas, reserve markets provide capacity in case there are fluctuations in supply and demand, and electricity demand can't be matched with supply. Our model simulates a day-ahead market over a single year time period to explore the effects of market power on electricity prices. The simulation uses monte-carlo simulation to vary inputs to more closely match the behaviour of these markets. For instance, in varying fuel prices within a year, and generator costs based upon geographical and factors that occur by chance, such as breakdowns.
+In this paper, we use a monte-carlo simulation to model a decentralized electricity market. Decentralized electricity markets have a number of different market structures: day-ahead, balancing market and reserve markets. The day-ahead market settles payments for electricity for the following day. The balancing market is designed to regulate the frequency of the market through matching supply and demand. Whereas, reserve markets provide capacity in case there are fluctuations in supply and demand, and electricity demand can't be matched with supply. Our model simulates a day-ahead market over a single year time period to explore the effects of market power on electricity prices. For instance, in varying fuel prices within a year, and generator costs based upon geographical and factors that occur by chance, such as breakdowns.
 
 Under perfectly competitive electricity markets, generator companies (GenCos) tend to bid their short-run marginal costs (SRMC) when bidding into the day-ahead electricity market. SRMC is the cost to produce a single MWh of electricity and excludes capital costs. However, electricity markets are often oligopolistic, where a small subset of GenCos provide the majority of the capacity to the market. Under these conditions, it is possible that the assumption that GenCos are price-takers does not hold. That is, large GenCos artificially increase the price of electricity to gain an increased profit using their market power. If they were price-takers, they would have to accept the competitive price set by the market.
 
-Reduced competition within electricity markets can lead to higher prices to consumers, with no societal benefit. It is, therefore, within the interests of the consumer and that of government to maintain a competitive market. Low energy costs enable innovation in other industries reliant on electricity, and in turn, make for a more productive economy. Competition within electricity markets can be increased by only allowing single entities to have control over a small amount of electricity generation capacity.
+Reduced competition within electricity markets can lead to higher prices to consumers, with no societal benefit. It is, therefore, within the interests of the consumer and that of government to maintain a competitive market. Low energy costs enable innovation in other industries reliant on electricity, and in turn, make for a more productive economy. In this paper, we explore how to increase competition within electricity markets.
 
-In this paper, we explore the effect of total control over capacity on electricity prices. Specifically, we model different sizes of GenCos and groups of colluding GenCos, bidding strategically to maximize their profit using a reinforcement learning algorithm. This is in contrast to the strategy of bidding using the SRMC of their respective power plants, which would occur under perfect market conditions. To model this we use an application of deep reinforcement learning (RL) to calculate a bidding strategy for GenCos in a day-ahead market. These GenCos are modelled as agents within the agent-based model, ElecSim \cite{Kell, Kell2020}. We use the UK electricity market instantiated on 2018 as a case study, similar to our work in \cite{Kell2019a}. That is, we model each GenCo with their respective power plants in the year 2018 to 2019. In total, we model 60 GenCos with 1,085 power plants. It is possible, however, to generalise this approach and model to any other decentralized electricity market. 
+In this paper, we explore the effect of total control over capacity on electricity prices. Specifically, we model different sizes of GenCos and groups of colluding GenCos, bidding strategically to maximize their profit using a learning algorithm. This is in contrast to the strategy of bidding using the SRMC of their respective power plants, which would occur under perfect market competition. Perfect market competition is a theoretical market structure where all firms sell an identical product, all firms are price-takers and market share has no influence on price. To model this we use an application of deep reinforcement learning (RL) to calculate a bidding strategy for GenCos in a day-ahead market. These GenCos are modelled as agents within the agent-based model, ElecSim \cite{Kell, Kell2020}. We use the UK electricity market instantiated on 2018 as a case study, similar to our work in \cite{Kell2019a}. That is, we model each GenCo with their respective power plants in the year 2018 to 2019. In total, we model 60 GenCos with 1,085 power plants. It is possible, however, to generalise this approach and model to any other decentralized electricity market. 
 
 We use the deep deterministic policy gradient (DDPG) deep RL algorithm, which allows for a continuous action space \cite{Hunt2016a}. Conventional RL methods require discretization of state or action spaces and therefore suffer from the curse of dimensionality \cite{Ye2020a}. As the number of discrete states and actions increases, the computational cost grows exponentially. However, too small a number of discrete states and actions will reduce the information available to the GenCos, leading to sub-optimal bidding strategies. Additionally, by using a continuous approach, we allow for GenCos to consider increasingly complex bidding strategies. 
 
@@ -98,6 +98,8 @@ Other works have considered a simplified model of an electricity market by model
 
 
 Our approach does not require GenCos to formulate any knowledge of the data which informs the market-clearing algorithm or rival GenCo bidding strategies, unlike in game-theoretic approaches \cite{Wang2011}. This enables a more realistic simulation where the strategy of rival GenCos are unknown.
+
+The contributions of this work are to use a novel agent-based model to explore market power in electricity markets using a deep reinforcement learning algorithm. Oligopolistic markets often exhibit market power which can lead to artificially inflated electricity prices. We find an optimal market cap level in the UK electricity market as well as the maximum proportion of capacity that a single entity should own to prevent imperfect market conditions.
 
 In Section \ref{sec:lit-review} we review the literature, and explore other uses of RL in electricity markets. In Section \ref{sec:material} we introduce the agent-based model used and the DDPG algorithm. Section \ref{sec:methodology} explores the methodology taken for our case study. The results are presented in Section \ref{sec:results}. We discuss and conclude our work in Sections \ref{sec:discussion} and \ref{sec:conclusion} respectively. 
 
@@ -124,7 +126,7 @@ In Section \ref{sec:lit-review} we review the literature, and explore other uses
 \section{Literature Review}
 \label{sec:lit-review}
 
-Intelligent bidding strategies for day-ahead electricity markets can be divided into two broad categories: game-theoretic models and simulation. Agent-based models (ABMs) allow for the simulation of heterogenous irrational actors with imperfect information. Additionally, ABMs allow for learning and adaption within a dynamic environment \cite{EsmaeiliAliabadi2017}. Game-theoretic approaches may struggle in complex electricity markets where Nash equilibriums do not exist \cite{Wang2011}.
+Intelligent bidding strategies for day-ahead electricity markets can be divided into two broad categories: game-theoretic models and simulation. Game-theoretic approaches may struggle in complex electricity markets where Nash equilibriums do not exist \cite{Wang2011}. Agent-based models (ABMs) allow for the simulation of heterogenous irrational actors with imperfect information. Additionally, ABMs allow for learning and adaption within a dynamic environment \cite{EsmaeiliAliabadi2017}.
 
 \subsection{Game-theoretic approaches}
 
@@ -137,7 +139,7 @@ Wang \textit{et al.} propose an evolutionary imperfect information game approach
 Next, we explore reinforcement learning approaches used to make intelligent bidding decisions in electricity markets. RL is a suitable method for analyzing the dynamic behaviour of complex systems with uncertainties. RL can, therefore be used to identify optimal bidding strategies in energy markets \cite{Yang2020}. Simulations are often used to provide an environment for the reinforcement learning algorithm. In the following papers simulations are used as the environment.
 
 
-Aliabadi \textit{et al.} utilize an ABM and the Q-learning algorithm to study the impact of learning and risk aversion on GenCos in an oligopolistic electricity market with five GenCos \cite{EsmaeiliAliabadi2017}. They find that some level of risk aversion is beneficial, however excessive risk degrades profits by causing an intense price competition. Our paper focuses on the impact of the interaction of many GenCos within the UK electricity market. In addition, we extend the Q-learning algorithm to use the DDPG algorithm, which uses a continuous action space.
+Aliabadi \textit{et al.} utilize an ABM and the Q-learning algorithm to study the impact of learning and risk aversion on GenCos in an oligopolistic electricity market with five GenCos \cite{EsmaeiliAliabadi2017}. They find that some level of risk aversion is beneficial, however excessive risk degrades profits by causing an intense price competition. Our paper focuses on the impact of the interaction of 60 GenCos within the UK electricity market. In addition, we extend the Q-learning algorithm to use the DDPG algorithm, which uses a continuous action space. A continuous action space allows for more granular action spaces to be taken, allowing for a more precise action. In addition, by modelling 60 GenCos, we are able to more closely match the real-life dynamics of the UK electricity market. 
 
 Bertrand \textit{et al.} use RL in an intraday market \cite{Bertrand2019}. Specifically, they use the REINFORCE algorithm to optimize the choice of price thresholds. The REINFORCE algorithm is a gradient-based method. They demonstrate an ability to outperform the traditionally used method, the rolling intrinsic method, by increasing profit per day by 4.2\%. The rolling intrinsic method accepts any trade, which gives a positive profit if the contracted quantity remains in the bounds of capacity. In our paper, we model a day-ahead market and use a continuous action for price bids.
 
@@ -185,11 +187,11 @@ Many approaches in reinforcement learning use the recursive relationship known a
 
 The Q-value can therefore be improved by bootstrapping. This is where the current value of the estimate of $Q_\pi$ is used to improve its future estimate, using the known $r(s_t,a_t)$ value. This is the foundation of Q-learning \cite{Gay2007}, a form of \textit{temporal difference} (TD) learning \cite{Sutton2015}, where the update of the Q-value after taking action $a_t$ in state $s_t$ and observing reward $r_t$, which results in state $s_{t+1}$ is:
 \begin{equation}
-	Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha\delta_t
+	Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha\delta_t,
 \end{equation}
 \noindent where,
 \begin{equation}
-	\delta_t=r_t+\gamma\max_{a_{t+1}}Q(s_{t+1},a_{t+1})-Q(s_{t},a_t)
+	\delta_t=r_t+\gamma\max_{a_{t+1}}Q(s_{t+1},a_{t+1})-Q(s_{t},a_t),
 \end{equation}
 \noindent $\alpha\in [0,1]$ is the step size, $\delta_t$ represents the correction for the estimation of the Q-value function and $r_t+\gamma\max_{a_{t+1}}Q(s_{t+1},a_{t+1})$ represents the target Q-value at time step $t$.	
 
@@ -208,7 +210,7 @@ The DPG algorithm maintains a parameterized actor function $\mu(s|\theta^\mu)$ w
 \begin{align}
 \begin{split}
 	\triangledown_{\theta^\mu}J\approx\mathbb{E}_{s_t\sim\rho^\beta}[\triangledown_{\theta^\mu}Q(s,a|\theta^Q)|_{s=s_t,a=\mu(s_t|\theta^\mu)}] \\
-	= \mathbb{E}_{s_t\sim\rho^\beta}[\triangledown_aQ(s,a|\theta^Q)|_{s=s_t,a=\mu(s_t)}\triangledown_{\theta_\mu}\mu(s|\theta^\mu)|_{s=s_t}]
+	= \mathbb{E}_{s_t\sim\rho^\beta}[\triangledown_aQ(s,a|\theta^Q)|_{s=s_t,a=\mu(s_t)}\triangledown_{\theta_\mu}\mu(s|\theta^\mu)|_{s=s_t}].
 \end{split}
 \end{align}
  
@@ -293,7 +295,7 @@ To parameterize the simulation, we use data from the United Kingdom in 2018. Thi
 
 \subsection{Reinforcement Learning Setup}
 
-By modelling bidding decisions as a RL algorithm, we hoped to observe the ability for RL to find the point at which market power artificially inflates electricity prices. To achieve this, we chose the six largest GenCos in the UK, as well as a smaller GenCo as a control. Groups of GenCos are modelled as a single GenCo with a single RL strategy for the purpose of this paper. Table \ref{table:genco_table} displays the groups of GenCos, as well as individual GenCos, with their respective capacity and number of plants.
+By modelling bidding decisions as a RL algorithm, we hope to observe the ability for RL to find the point at which market power artificially inflates electricity prices. To achieve this, we choose the six largest GenCos in the UK, as well as a smaller GenCo as a control. Groups of GenCos are modelled as a single GenCo with a single RL strategy for the purpose of this paper. Table \ref{table:genco_table} displays the groups of GenCos, as well as individual GenCos, with their respective capacity and number of plants.
 
 
 
@@ -329,20 +331,20 @@ EDF Energy                                                                      
 For the reinforcement learning problem we have the following tuple: $(s_t,a_t,r_t,s_{t+1})$, where $(s_t, s_{t+1})$ is the state at time $t$ and $t+1$ respectively, $a_t$ is the action at time $t$ and $r_t$ is the reward at time $t$. For our problem the state space is given by the tuple shown in Equation \ref{eq:observation_tuple}:
 \begin{equation}
 \label{eq:observation_tuple}
-	s_t=(H_i,D_i,p_{CO_{2}},p_{gas},p_{coal},p_{c})
+	s_t=(H_i,D_i,p_{CO_{2}},p_{gas},p_{coal},p_{c}),
 \end{equation}
 \noindent where $H_i$ is the segment hour to bid into at timestep $i$, $D_i$ is the demand of the segment hour at timestep $t$, $p_{gas}$ is the price of gas, $p_{coal}$ the price of coal, $p_{CO_{2}}$ is the carbon tax price, and $p_{c}$ is the clearing price. We set the reward, $r_t$ to be the average electricity price of that time step, $p_{avg}$, as shown by Equation \ref{eq:reward}:
 
 \begin{equation}
 \label{eq:reward}
-	r_t=p_{avg}
+	r_t=p_{avg},
 \end{equation}
 
 \noindent where $p_{avg}$ is defined in Equation \ref{eq:p_avg}:
 
 \begin{equation}
 \label{eq:p_avg}
-	p_{avg}=\frac{\sum_{m=0}^{M}p_m}{M}
+	p_{avg}=\frac{\sum_{m=0}^{M}p_m}{M},
 \end{equation}
 
 \noindent where $p_m$ is the price for the $m$ load segment for the respective time step, and $M$ is the total load segments, which in our case is 20. 

@@ -10,49 +10,51 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: library.bib
 Database file #2: custom_bib.bib
 Database file #3: custombibtexfile.bib
+Warning--I didn't find a database entry for "gridwatch"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 20 entries,
+You've used 19 entries,
             4087 wiz_defined-function locations,
-            955 strings with 11616 characters,
-and the built_in function-call counts, 14355 in all, are:
-= -- 1186
-> -- 361
+            953 strings with 11552 characters,
+and the built_in function-call counts, 14065 in all, are:
+= -- 1165
+> -- 360
 < -- 120
-+ -- 196
++ -- 195
 - -- 62
-* -- 689
-:= -- 2196
-add.period$ -- 39
-call.type$ -- 20
-change.case$ -- 20
+* -- 681
+:= -- 2146
+add.period$ -- 38
+call.type$ -- 19
+change.case$ -- 19
 chr.to.int$ -- 279
-cite$ -- 20
-duplicate$ -- 1041
-empty$ -- 1069
+cite$ -- 19
+duplicate$ -- 1016
+empty$ -- 1037
 format.name$ -- 81
-if$ -- 3303
+if$ -- 3238
 int.to.chr$ -- 0
-int.to.str$ -- 20
-missing$ -- 171
-newline$ -- 87
+int.to.str$ -- 19
+missing$ -- 165
+newline$ -- 82
 num.names$ -- 19
-pop$ -- 402
+pop$ -- 380
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1102
+skip$ -- 1078
 stack$ -- 0
 substring$ -- 675
-swap$ -- 843
+swap$ -- 829
 text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 20
+type$ -- 19
 warning$ -- 0
 while$ -- 64
-width$ -- 22
-write$ -- 213
+width$ -- 21
+write$ -- 204
+(There was 1 warning)
