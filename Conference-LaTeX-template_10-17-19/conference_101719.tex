@@ -238,7 +238,8 @@ A copy is made of the actor and critic networks, $Q'(s,a|\theta^{Q'})$ and $\mu'
 \begin{algorithm}
 \caption{DDPG Algorithm \cite{Hunt2016a}}
 \begin{algorithmic}[1]
-  \footnotesize
+%  \footnotesize
+  \small
   \STATE Initialize critic network $Q(s,a|\theta^Q)$ and actor $\mu(s|\theta^\mu)$ with random weights $\theta^Q$ and $\theta^\mu$
   \STATE Initialize target network $Q'$ and $\mu'$ with weights $\theta^{Q'}\leftarrow\theta^Q,\theta^{\mu'}\leftarrow \theta^{\mu}$
   \STATE Initialize replay buffer $R$
@@ -268,7 +269,11 @@ We utilized the long-term electricity market agent-based model, ElecSim \cite{Ke
 
 ElecSim is made up of six components: 1) power plant data; 2) scenario data; 3) the time steps of the algorithm; 4) the power exchange; 5) the investment algorithm and 6) the generation companies (GenCos) as agents. For this paper, we ignore the investment algorithm, due to investments happening only once a year, and not in the first year of operation. 
 
-ElecSim uses a subset of representative days of electricity demand, solar irradiance and wind speed to approximate a full year. Representative days, in this context, are a subset of days which can closely approximate an entire year's electricity demand and weather patterns. By using a subset, we are able to reduce the computational time to run, whilst maintaining accuracy of modelling the real electricity market \cite{Kell2020}.
+The power plant data is made up of both historical power plant costs and modern power plant costs, as well as limits in the amount that these plants can run. The scenario data links to many different sources, such as electricity demand, power plants in operation and fuel costs. Each time-step a large amount of data is generated and analysed. For instance, 1085 power plants must make bids into each of the 20 demand segments, for each hour of each day, with eight days per year. This leads to over 4,000,000 actions per simulation run (1085 power plants multiplied by 20 demand segments, multiplied by 24 hours, multiplied by eight days).
+
+The power exchange then must sort each of these bids per demand segment, from lowest bid to highest, accepting bids until the electricity demand is met. Once the electricity demand is met, the rest of the bids are rejected. There are 60 GenCos, modelled on the real-life GenCos in the UK electricity market. Each of these GenCos must then make decisions based on investments in the future, based upon the money available to them, and regressions based on expected scenarios in the future, such as carbon, fuel price and demand. In this paper, the model was only run for a single year. 
+
+ElecSim uses a subset of representative days of electricity demand, solar irradiance and wind speed to approximate a full year. Representative days, in this context, are a subset of days which can closely approximate an entire year's electricity demand and weather patterns. By using a subset, we are able to reduce the computational time to run, whilst maintaining accuracy of modelling the real electricity market \cite{Kell2020}. We used 8 representative days with an hourly granularity. This leads to 192 time-steps per year. If we did not use representative days, the simulation would consist of 365 days of 24 hour time-steps, leading to 8,760 time-steps. A ${\sim}$45$\times$ decrease. A single simulation takes 2 minutes to run using 8 representative days, which would increase to 90 minutes if representative days weren't used. This would significantly reduce the tractability of the problem, as 1000s of simulation iterations would be required. A problem which currently took a week to run, would take 45 weeks to finalise, without a significant improvement in accuracy.
 
 Figure \ref{fig:model_details} shows how the six components interact. The electricity demand is matched with the supply of the power plants, owned by the generator companies (GenCos). We have configured ElecSim to model the UK electricity market, using the configuration file. Specifically, we model the actual GenCos with their respective power plants that were in operation in 2018.
 
@@ -304,9 +309,12 @@ For the purpose of this work, we do not consider flow constraints within the ele
 
 \subsection{Model Parametrization}
 
-To parameterize the simulation, we use data from the United Kingdom in 2018. This included 1085 electricity generators and power plants with their respective GenCos. The data for this was taken from the BEIS DUKES dataset \cite{dukes_511}. The electricity load data was modelled using data from \cite{gridwatch}; offshore and onshore wind and solar irradiance data from \cite{Pfenninger2016}. It would be possible to adopt this approach to other decentralized markets in other countries.
+To parameterize the simulation, we use data from the United Kingdom in 2018. This included 1085 electricity generators and power plants with their respective GenCos. The data for this was taken from the BEIS DUKES dataset \cite{dukes_511}. The data included construction costs, capital and operating costs as well as lifetimes of the plant and capacity. The storage size of all of these power plants was 10MB of data. The electricity load data was modelled using data from \cite{gridwatch}; offshore and onshore wind and solar irradiance data from \cite{Pfenninger2016} and are 20MB in size. It would be possible to adopt this approach to other decentralized markets in other countries.
+ 
 
 \subsection{Reinforcement Learning Setup}
+
+Much of the data used by the algorithm was generated by the simulation and persisted in memory. With over 4,000,000 bids made by all of the power plants in each simulation run. Each bid had six different state data and a reward; leading to 28,000,000 data points per simulation. 1,000 simulation runs, therefore leads to $28\times 10^9$ data points used to train the reinforcement learning algorithm.
 
 By modelling bidding decisions as a RL algorithm, we hope to observe the ability for RL to find the point at which market power artificially inflates electricity prices. To achieve this, we choose the six largest GenCos in the UK, as well as a smaller GenCo as a control. Groups of GenCos are modelled as a single GenCo with a single RL strategy for the purpose of this paper. Table \ref{table:genco_table} displays the groups of GenCos, as well as individual GenCos, with their respective capacity and number of plants.
 
