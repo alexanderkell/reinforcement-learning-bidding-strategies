@@ -21,11 +21,17 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{Kell2020c}
+A.~J.~M. Kell, A.~S. McGough, and M.~Forshaw, ``{The impact of online
+  machine-learning methods on long-term investment decisions and generator
+  utilization in electricity markets},'' \emph{11th International Green and
+  Sustainable Computing Conference, IGSC 2020}, 2020.
+
 \bibitem{Kell}
 A.~Kell, M.~Forshaw, and A.~S. McGough, ``{ElecSim : Monte-Carlo Open-Source
   Agent-Based Model to Inform Policy for Long-Term Electricity Planning},''
   \emph{The Tenth ACM International Conference on Future Energy Systems (ACM
-  e-Energy)}, pp. 556--565, 2019.
+  e-Energy `19)}, pp. 556--565, 2019.
 
 \bibitem{Kell2020}
 A.~J.~M. Kell, M.~Forshaw, and A.~S. McGough, ``{Long-Term Electricity Market
@@ -35,7 +41,7 @@ A.~J.~M. Kell, M.~Forshaw, and A.~S. McGough, ``{Long-Term Electricity Market
 
 \bibitem{Kell2019a}
 A.~Kell, M.~Forshaw, and A.~S. McGough, ``{Modelling carbon tax in the UK
-  electricity market using an agent-based model},'' \emph{e-Energy 2019 -
+  electricity market using an agent-based model},'' \emph{ACM e-Energy 2019 -
   Proceedings of the 10th ACM International Conference on Future Energy
   Systems}, no. Ldc, pp. 425--427, 2019.
 
@@ -85,7 +91,7 @@ T.~Yang, L.~Zhao, W.~Li, and A.~Y. Zomaya, ``{Reinforcement learning in
 \bibitem{Bertrand2019}
 G.~Bertrand and A.~Papavasiliou, ``{Reinforcement-Learning Based Threshold
   Policies for Continuous Intraday Electricity Market Trading},'' \emph{IEEE
-  Power and Energy Society General Meeting}, vol. 2019-Augus, 2019.
+  Power and Energy Society General Meeting}, vol. 2019, 2019.
 
 \bibitem{Schaul2016}
 T.~Schaul, J.~Quan, I.~Antonoglou, and D.~Silver, ``{Prioritized experience
@@ -113,6 +119,11 @@ D.~Silver, G.~Lever, N.~Heess, T.~Degris, D.~Wierstra, and M.~Riedmiller,
 \bibitem{dukes_511}
 D.~for Business~Energy and I.~Strategy, ``Power stations in the united kingdom,
   may 2019,'' \emph{Digest of United Kingdom Energy Statistics (DUKES)}, 2019.
+
+\bibitem{gbnationalgridstatus_2019}
+\BIBentryALTinterwordspacing
+2019. [Online]. Available: \url{https://www.gridwatch.templar.co.uk/}
+\BIBentrySTDinterwordspacing
 
 \bibitem{Pfenninger2016}
 S.~Pfenninger and I.~Staffell, ``{Long-term patterns of European PV output

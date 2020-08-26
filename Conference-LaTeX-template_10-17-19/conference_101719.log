@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.22)  25 AUG 2020 16:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.22)  26 AUG 2020 15:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -492,25 +492,28 @@ Underfull \hbox (badness 4531) in paragraph at lines 99--100
  []
 
 [2]
-Underfull \hbox (badness 1490) in paragraph at lines 208--210
+Underfull \vbox (badness 3701) has occurred while \output is active []
+
+
+Underfull \hbox (badness 1490) in paragraph at lines 210--212
 $\OML/cmm/m/it/10  \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 [0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1]$ \OT1/ptm/m/n/10 is the step size, $\OML/cmm/m/it/10 ^^N[]$ \OT1/ptm/m/n/10 rep-re-sents the cor-rec-
  []
 
 [3]
-Underfull \hbox (badness 2799) in paragraph at lines 236--237
+Underfull \hbox (badness 2799) in paragraph at lines 238--239
 []\OT1/ptm/m/n/10 A copy is made of the ac-tor and critic net-works,
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 246.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 248.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 253--254
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
 [] []\OT1/ptm/m/n/9 Sample a ran-dom mini-batch of $\OML/cmm/m/it/9 N$ \OT1/ptm/m/n/9 tran-si-tions
  []
 
 
-Overfull \hbox (0.51257pt too wide) detected at line 256
+Overfull \hbox (0.51257pt too wide) detected at line 258
 \U/msa/m/n/9 O[]\OML/cmm/m/it/9 J \OMS/cmsy/m/n/9 ^^Y [] [] \U/msa/m/n/9 O[]\OML/cmm/m/it/9 Q\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 s; a\OMS/cmsy/m/n/9 j\OML/cmm/m/it/9 ^^R[]\OT1/cmr/m/n/9 )\OMS/cmsy/m/n/9 j[]\U/msa/m/n/9 O[]\OML/cmm/m/it/9 ^^V\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 s\OMS/cmsy/m/n/9 j\OML/cmm/m/it/9 ^^R[]\OT1/cmr/m/n/9 )\OMS/cmsy/m/n/9 j[]
  []
 
@@ -518,79 +521,76 @@ Overfull \hbox (0.51257pt too wide) detected at line 256
 <figures/methedology/system-overview-v2.png, id=39, 923.45pt x 538.01pt>
 File: figures/methedology/system-overview-v2.png Graphic file (type png)
 <use figures/methedology/system-overview-v2.png>
-Package pdftex.def Info: figures/methedology/system-overview-v2.png  used on input line 283.
+Package pdftex.def Info: figures/methedology/system-overview-v2.png  used on input line 285.
 (pdftex.def)             Requested size: 252.84283pt x 147.30876pt.
 
-Overfull \hbox (0.84283pt too wide) in paragraph at lines 283--284
+Overfull \hbox (0.84283pt too wide) in paragraph at lines 285--286
 [][] 
  []
 
-
-LaTeX Warning: Citation `gridwatch' on page 5 undefined on input line 312.
-
 [5 <./figures/methedology/system-overview-v2.png>]
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 339.
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 373.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 341.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 375.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 408--409
+Underfull \hbox (badness 10000) in paragraph at lines 410--411
 
  []
 
 <figures/results/unbounded_results.pdf, id=43, 853.1875pt x 568.1225pt>
 File: figures/results/unbounded_results.pdf Graphic file (type pdf)
 <use figures/results/unbounded_results.pdf>
-Package pdftex.def Info: figures/results/unbounded_results.pdf  used on input line 423.
+Package pdftex.def Info: figures/results/unbounded_results.pdf  used on input line 425.
 (pdftex.def)             Requested size: 252.84283pt x 168.3662pt.
 
-Overfull \hbox (0.84283pt too wide) in paragraph at lines 423--424
+Overfull \hbox (0.84283pt too wide) in paragraph at lines 425--426
  [][] 
  []
 
 <figures/results/bounded_results.pdf, id=44, 853.1875pt x 568.1225pt>
 File: figures/results/bounded_results.pdf Graphic file (type pdf)
 <use figures/results/bounded_results.pdf>
-Package pdftex.def Info: figures/results/bounded_results.pdf  used on input line 430.
+Package pdftex.def Info: figures/results/bounded_results.pdf  used on input line 432.
 (pdftex.def)             Requested size: 252.84283pt x 168.3662pt.
 
-Overfull \hbox (0.84283pt too wide) in paragraph at lines 430--431
+Overfull \hbox (0.84283pt too wide) in paragraph at lines 432--433
  [][] 
  []
 
 
-Underfull \hbox (badness 4595) in paragraph at lines 437--438
+Underfull \hbox (badness 4595) in paragraph at lines 439--440
 []\OT1/ptm/m/n/10 The av-er-age elec-tric-ity price for a ca-pac-ity be-low
  []
 
 [6]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 445.
+               Default added (so using `tbp') on input line 447.
 
 <figures/results/unbounded_results_scatter.pdf, id=48, 853.1875pt x 568.1225pt>
 File: figures/results/unbounded_results_scatter.pdf Graphic file (type pdf)
 <use figures/results/unbounded_results_scatter.pdf>
-Package pdftex.def Info: figures/results/unbounded_results_scatter.pdf  used on input line 447.
+Package pdftex.def Info: figures/results/unbounded_results_scatter.pdf  used on input line 449.
 (pdftex.def)             Requested size: 252.84283pt x 168.3662pt.
 
-Overfull \hbox (0.84283pt too wide) in paragraph at lines 447--448
+Overfull \hbox (0.84283pt too wide) in paragraph at lines 449--450
  [][] 
  []
 
 
-Underfull \hbox (badness 3354) in paragraph at lines 453--454
+Underfull \hbox (badness 3354) in paragraph at lines 455--456
 []\OT1/ptm/m/n/10 Figure 3[] shows a clus-ter be-tween $[]$\TS1/ptm/m/n/10 £$\OT1/cmr/m/n/10 60$\OT1/ptm/m/n/10 /MWh and
  []
 
 <figures/results/bounded_results_scatter.pdf, id=49, 853.1875pt x 568.1225pt>
 File: figures/results/bounded_results_scatter.pdf Graphic file (type pdf)
 <use figures/results/bounded_results_scatter.pdf>
-Package pdftex.def Info: figures/results/bounded_results_scatter.pdf  used on input line 462.
+Package pdftex.def Info: figures/results/bounded_results_scatter.pdf  used on input line 464.
 (pdftex.def)             Requested size: 252.84283pt x 168.3662pt.
 
-Overfull \hbox (0.84283pt too wide) in paragraph at lines 462--463
+Overfull \hbox (0.84283pt too wide) in paragraph at lines 464--465
  [][] 
  []
 
@@ -598,98 +598,48 @@ Overfull \hbox (0.84283pt too wide) in paragraph at lines 462--463
 <figures/results/large_company_capped_600_bids.png, id=80, 11855.29124pt x 7903.5275pt>
 File: figures/results/large_company_capped_600_bids.png Graphic file (type png)
 <use figures/results/large_company_capped_600_bids.png>
-Package pdftex.def Info: figures/results/large_company_capped_600_bids.png  used on input line 489.
+Package pdftex.def Info: figures/results/large_company_capped_600_bids.png  used on input line 491.
 (pdftex.def)             Requested size: 252.84283pt x 168.47536pt.
 <figures/results/small_company_capped_600_bids.png, id=82, 11855.29124pt x 7903.5275pt>
 File: figures/results/small_company_capped_600_bids.png Graphic file (type png)
 <use figures/results/small_company_capped_600_bids.png>
-Package pdftex.def Info: figures/results/small_company_capped_600_bids.png  used on input line 497.
+Package pdftex.def Info: figures/results/small_company_capped_600_bids.png  used on input line 499.
 (pdftex.def)             Requested size: 252.84283pt x 168.47536pt.
 
-Overfull \hbox (0.84283pt too wide) in paragraph at lines 488--501
+Overfull \hbox (0.84283pt too wide) in paragraph at lines 490--503
  [][] 
  []
 
 
-Overfull \hbox (0.84283pt too wide) in paragraph at lines 488--501
+Overfull \hbox (0.84283pt too wide) in paragraph at lines 490--503
  [] 
  []
 
 <figures/results/large_company_capped_150_bids.png, id=83, 11855.29124pt x 7903.5275pt>
 File: figures/results/large_company_capped_150_bids.png Graphic file (type png)
 <use figures/results/large_company_capped_150_bids.png>
-Package pdftex.def Info: figures/results/large_company_capped_150_bids.png  used on input line 512.
+Package pdftex.def Info: figures/results/large_company_capped_150_bids.png  used on input line 514.
 (pdftex.def)             Requested size: 252.84283pt x 168.47536pt.
 <figures/results/small_company_capped_150_bids.png, id=84, 11855.29124pt x 7903.5275pt>
 File: figures/results/small_company_capped_150_bids.png Graphic file (type png)
 <use figures/results/small_company_capped_150_bids.png>
-Package pdftex.def Info: figures/results/small_company_capped_150_bids.png  used on input line 520.
+Package pdftex.def Info: figures/results/small_company_capped_150_bids.png  used on input line 522.
 (pdftex.def)             Requested size: 252.84283pt x 168.47536pt.
 
-Overfull \hbox (0.84283pt too wide) in paragraph at lines 511--524
+Overfull \hbox (0.84283pt too wide) in paragraph at lines 513--526
  [][] 
  []
 
 
-Overfull \hbox (0.84283pt too wide) in paragraph at lines 511--524
+Overfull \hbox (0.84283pt too wide) in paragraph at lines 513--526
  [] 
  []
 
-<figures/results/ecdf_all.png, id=85, 11855.29124pt x 7903.5275pt>
+[8 <./figures/results/bounded_results_scatter.pdf> <./figures/results/large_company_capped_600_bids.png> <./figures/results/small_company_capped_600_bids.png>]
+<figures/results/ecdf_all.png, id=97, 11855.29124pt x 7903.5275pt>
 File: figures/results/ecdf_all.png Graphic file (type png)
 <use figures/results/ecdf_all.png>
-Package pdftex.def Info: figures/results/ecdf_all.png  used on input line 532.
+Package pdftex.def Info: figures/results/ecdf_all.png  used on input line 534.
 (pdftex.def)             Requested size: 252.84283pt x 168.47536pt.
 
-Overfull \hbox (0.84283pt too wide) in paragraph at lines 532--533
- [][] 
- []
-
-<figures/results/sensitivity_analysis.png, id=86, 11855.29124pt x 7903.5275pt>
-File: figures/results/sensitivity_analysis.png Graphic file (type png)
-<use figures/results/sensitivity_analysis.png>
-Package pdftex.def Info: figures/results/sensitivity_analysis.png  used on input line 539.
-(pdftex.def)             Requested size: 252.84283pt x 168.47536pt.
-
-Overfull \hbox (0.84283pt too wide) in paragraph at lines 539--540
-[][] 
- []
-
-[8 <./figures/results/bounded_results_scatter.pdf> <./figures/results/large_company_capped_600_bids.png> <./figures/results/small_company_capped_600_bids.png>] [9 <./figures/results/large_company_capped_150_bids.png> <./figures/results/small_company_capped_150_bids.png> <./figures/results/ecdf_all.png> <./figures/results/sensitivity_analysis.png>] (./conference_101719.bbl
-Underfull \hbox (badness 1354) in paragraph at lines 86--89
-[]\OT1/ptm/m/n/8 G. Bertrand and A. Pa-pavasil-iou, ``Reinforcement-Learning Based
- []
-
-)
-
-** Conference Paper **
-Before submitting the final camera ready copy, remember to:
-
- 1. Manually equalize the lengths of two columns on the last page
- of your paper;
-
- 2. Ensure that any PostScript and/or PDF output post-processing
- uses only Type 1 fonts and that every step in the generation
- process uses the appropriate paper size.
-
-[10] (./conference_101719.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
-Here is how much of TeX's memory you used:
- 7695 strings out of 480608
- 128198 string characters out of 5903630
- 383795 words of memory out of 5000000
- 23442 multiletter control sequences out of 15000+600000
- 572513 words of font info for 105 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 48i,15n,48p,1191b,597s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on conference_101719.pdf (10 pages, 5827285 bytes).
-PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+Overfull \hbox (0.84283pt too wide) in paragraph at 
