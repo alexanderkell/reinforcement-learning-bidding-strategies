@@ -438,7 +438,7 @@ Figures \ref{fig:unbounded_timesteps} and \ref{fig:bounded_timesteps} show the r
 
 The average electricity price for a capacity below 30,000MW, or ${\sim35\%}$ of total capacity, remains stable between \textsterling70/MWh and \textsterling100/MWh. This range may be due to the stochasticity in calculating the weights for the DDPG algorithm. The average electricity price does not change over the time steps or training. We, therefore, hypothesize that there is no market power as long as an individual GenCo owns below ${\sim}35\%$ of total electrical capacity. 
 
-On the other hand, once the capacity of a GenCo or groups of GenCos is above 30,000MW, there is a significant increase in the average price for capacity. The average electricity price for capacity falls between the range of  \textsterling$170$/MWh and \textsterling$220$/MWh. 
+On the other hand, once the capacity of a GenCo or groups of GenCos is above 30,000MW, there is a significant increase in the average price for capacity. The average electricity price for capacity falls between \textsterling$170$/MWh and \textsterling$220$/MWh. 
 
 Figure \ref{fig:unbounded_results_scatter} displays the capacity controlled by the agents that use the RL strategy versus the average electricity price for the unbounded case. The color displays the number of steps. The step-change, as shown in Figure \ref{fig:unbounded_timesteps} can be seen clearly here, with agents with a capacity larger than ${\sim}$25,000MW causing a step change in electricity price. Electricity prices seems to cluster below ${\sim}$10,000MW. However, after this point, the average electricity price begins to increase.
 
