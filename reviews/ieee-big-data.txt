@@ -1,0 +1,30 @@
+Reviewer 1:
+
+From a big data point of view the paper is a disappointment. It is not clear what the model is run on from the paper but that in itself is worrying.
+
+What is clear is that the authors missed an opportunity to run a true big data simulation by using the much more detailed model that they dismiss as being too computationally intensive. My guess is that with parallel computing resources this would work just fine.
+
+This would have made for an outstanding paper I suspect and even if the results were similar to the simpler model used would have validated the simpler approach.
+
+
+Reviewer 2:
+
+Cons
+
+More importantly, I had a hard time to understand the logic
+behind this work, how the agent interacts with the environment,
+what is the rationale behind the design, from the perspective of
+RL application.
+For example, "each state space contains six data points". The terminology
+used here is very confusing. I would suggest the authors understand
+what "state space" and "data points" stand for in RL's context before using it.
+
+
+Reviewer 3:
+
+The paper is an interesting application of reinforcement learning to simulate market actor behavior. Generally, the paper is well written in falls within the scope of BigData, just.
+
+Given that the subject relates to marketplace or mechanism design, there might be other, more specialized conferences or economics conferences that would find a better audience.
+
+While the paper's introduction gives good background, the line of argumentation is a bit unclear. It is not well explained, what the actual model predictive model that is trained predicts (a strategy) and what the quality of these predictions are. This model is them plugged into a simulation, which then compares pricing results to average UK prices. The overall flow of this is nor really explained well, in particular not the prediction model part.
+

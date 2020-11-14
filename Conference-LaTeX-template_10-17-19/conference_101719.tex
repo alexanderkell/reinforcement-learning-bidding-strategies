@@ -18,20 +18,21 @@
 \begin{document}
 
 \title{Exploring market power using deep reinforcement learning for intelligent bidding strategies
-%\thanks{EPSRC}
+\thanks{EPSRC}
 }
 
-\author{\IEEEauthorblockN{Alexander J. M. Kell, Matthew Forshaw, A. Stephen McGough}
+\author{\IEEEauthorblockN{Alexander J. M. Kell\textsuperscript{\textsection}}
+\IEEEauthorblockA{\textit{Department of Chemical Engineering} \\
+\textit{Imperial College London}\\
+London, U.K. \\
+a.kell@imperial.ac.uk}
+\and
+\IEEEauthorblockN{Matthew Forshaw, A. Stephen McGough}
 \IEEEauthorblockA{\textit{School of Computing} \\
 \textit{Newcastle University}\\
-Newcastle upon Tyne, U.K. \\
-\{a.kell2, matthew.forshaw, stephen.mcgough\}@newcastle.ac.uk}
-%\and
-%\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
-%\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-%\textit{name of organization (of Aff.)}\\
-%City, Country \\
-%email address or ORCID}
+Newcastle \\
+\{matthew.forshaw, stephen.mcgough\}@newcastle.ac.uk}
+}
 %\and
 %\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
 %\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
@@ -56,9 +57,12 @@ Newcastle upon Tyne, U.K. \\
 %\textit{name of organization (of Aff.)}\\
 %City, Country \\
 %email address or ORCID}
-}
+
 
 \maketitle
+\begingroup\renewcommand\thefootnote{\textsection}
+\footnotetext{This work was carried out whilst at Newcastle University.}
+\endgroup
 
 \begin{abstract}
 
@@ -66,7 +70,7 @@ Newcastle upon Tyne, U.K. \\
 
 Decentralized electricity markets are often dominated by a small set of generator companies who control the majority of the capacity. In this paper, we explore the effect of the total controlled electricity capacity by a single, or group, of generator companies can have on the average electricity price. We demonstrate this through the use of ElecSim, a simulation of a country-wide energy market. We develop a strategic agent, representing a generation company, which uses a deep deterministic policy gradient reinforcement learning algorithm to bid in a uniform pricing electricity market. A uniform pricing market is one where all players are paid the highest accepted price. ElecSim is parameterized to the United Kingdom for the year 2018. This work can help inform policy on how to best regulate a market to ensure that the price of electricity remains competitive.
 
-We find that capacity has an impact on the average electricity price in a single year. If any single generator company, or a collaborating group of generator companies, control more than ${\sim}$11$\%$ of generation capacity and bid strategically, prices begin to increase by ${\sim}$25$\%$. The value of ${\sim}$25\% and ${\sim}$11\% may vary between market structures and countries. For instance, different load profiles may favour a particular type of generator or a different distribution of generation capacity. Once the capacity controlled by a generator company, which bids strategically, is higher than ${\sim}$35\%, prices increase exponentially. We observe that the use of the a market cap of approximately double the average market price has the effect of significantly decreasing this effect and maintaining a competitive market. A fair and competitive electricity market provides value to consumers and enables a more competitive economy through the utilisation of electricity by both industry and consumers.
+We find that capacity has an impact on the average electricity price in a single year. If any single generator company, or a collaborating group of generator companies, control more than ${\sim}$11$\%$ of generation capacity and bid strategically, prices begin to increase by ${\sim}$25$\%$. The value of ${\sim}$25\% and ${\sim}$11\% may vary between market structures and countries. For instance, different load profiles may favour a particular type of generator or a different distribution of generation capacity. Once the capacity controlled by a generator company, which bids strategically, is higher than ${\sim}$35\%, prices increase exponentially. We observe that the use of a market cap of approximately double the average market price has the effect of significantly decreasing this effect and maintaining a competitive market. A fair and competitive electricity market provides value to consumers and enables a more competitive economy through the utilisation of electricity by both industry and consumers.
 
 % Methodology
 
@@ -84,7 +88,7 @@ deep reinforcement learning, bidding strategy, multi-agent system, electricity m
 \section{Introduction}
 \label{sec:introduction}
 
-In this paper, we use a monte-carlo simulation to model a decentralized electricity market. Decentralized electricity markets have a number of different market structures: day-ahead, balancing market and reserve markets. The day-ahead market settles payments for electricity for the following day. The balancing market is designed to regulate the frequency of the market through matching supply and demand \cite{Kell2020c}. Whereas, reserve markets provide capacity in case there are fluctuations in supply and demand, and electricity demand can't be matched with supply. Our model simulates a day-ahead market over a single year time period to explore the effects of market power on electricity prices. For instance, in varying fuel prices within a year, and generator costs based upon geographical and factors that occur by chance, such as breakdowns.
+In this paper, we use a monte-carlo simulation to model a decentralized electricity market. Decentralized electricity markets have a number of different market structures: day-ahead, balancing market and reserve markets. The day-ahead market settles payments for electricity for the following day. The balancing market is designed to regulate the frequency of the market through matching supply and demand \cite{Kell2020c}. Whereas, reserve markets provide capacity in case there are fluctuations in supply and demand, and electricity demand can't be matched with supply. Our model simulates a day-ahead market over a single year time period to explore the effects of market power on electricity prices. % For instance, in varying fuel prices within a year, and generator costs based upon geographical and factors that occur by chance, such as breakdowns.
 
 Under perfectly competitive electricity markets, generator companies (GenCos) tend to bid their short-run marginal costs (SRMC) when bidding into the day-ahead electricity market. SRMC is the cost to produce a single MWh of electricity and excludes capital costs. However, electricity markets are often oligopolistic, where a small subset of GenCos provide the majority of the capacity to the market. Under these conditions, it is possible that the assumption that GenCos are price-takers does not hold. That is, large GenCos artificially increase the price of electricity to gain an increased profit using their market power. If they were price-takers, they would have to accept the competitive price set by the market.
 
@@ -151,7 +155,7 @@ Simulations are often used to understand markets and how an individual or entity
 
 \subsection{Reinforcement learning to model intelligence}
 
-Simulation is often used as an environment for RL to learn and act in. This is due to the ability for simulation to perform actions in faster than real-time. In this section we explore reinforcement learning approaches used to make intelligent bidding decisions in electricity markets. RL is a suitable method for analyzing the dynamic behaviour of complex systems with uncertainties. RL can, therefore be used to identify optimal bidding strategies in energy markets \cite{Yang2020}. In the following papers simulations are used as the environment.
+Simulation is often used as an environment for RL to learn and act in. This is due to the ability for simulation to perform actions in faster than real-time. In this section we explore RL approaches used to make intelligent bidding decisions in electricity markets. RL is a suitable method for analyzing the dynamic behaviour of complex systems with uncertainties. RL can, therefore be used to identify optimal bidding strategies in energy markets \cite{Yang2020}. In the following papers simulations are used as the environment.
 
 
 Aliabadi \textit{et al.} utilize an ABM and the Q-learning algorithm to study the impact of learning and risk aversion on GenCos in an oligopolistic electricity market with five GenCos \cite{EsmaeiliAliabadi2017}. They find that some level of risk aversion is beneficial, however excessive risk degrades profits by causing an intense price competition. Our paper focuses on the impact of the interaction of 60 GenCos within the UK electricity market. In addition, we extend the Q-learning algorithm to use the DDPG algorithm, which uses a continuous action space. A continuous action space allows for more granular action spaces to be taken, allowing for a more precise action. In addition, by modelling 60 GenCos, we are able to more closely match the real-life dynamics of the UK electricity market. 
@@ -229,7 +233,7 @@ The DPG algorithm maintains a parameterized actor function $\mu(s|\theta^\mu)$ w
 \end{split}
 \end{align}
  
-This is the policy gradient, the gradient of the policy's performance. The policy gradient method optimizes the policy directly by updating the weights, $\theta$, in such a way that an optimal policy is found within finite time. This is achieved by performing gradient ascent on the policy and its parameters $\pi^\theta$.
+This is the policy gradient, the gradient of the policy's performance. The policy gradient method optimizes the policy directly by updating the weights, $\theta$, in such a way that an optimal policy is found within finite time. This is achieved by performing gradient ascent on the policy and parameters $\pi^\theta$.
 
 Introducing non-linear function approximators, however, means that convergence is no longer guaranteed. Although these function approximators are required in order to learn and generalize on large state spaces. The Deep Deterministic Gradient Policy (DDPG) modifies the DPG algorithm by using neural network function approximators to learn large state and action spaces online.
 
@@ -267,7 +271,7 @@ A copy is made of the actor and critic networks, $Q'(s,a|\theta^{Q'})$ and $\mu'
 
 \subsection{Simulation}
 
-We utilized the long-term electricity market agent-based model, ElecSim \cite{Kell,Kell2020}. ElecSim is a simulation which consists of multiple generation companies which interact in a simulated electricity market. This electricity market is able to run for 20+ years and can show what long-term scenarios may develop from certain scenario configurations, such as high carbon and fuel prices. The generation companies invest in power plants based upon their understanding and expectations of market conditions now and in the future. They then sell the electricity generators on a day-ahead spot market. The model was run using a short term approach by only iterating through a single year (2018), composed of eight representative days, each of 24 time steps.
+We utilized the long-term electricity market agent-based model, ElecSim \cite{Kell,Kell2020}. ElecSim is a simulation which consists of multiple generation companies which interact in a simulated electricity market. This electricity market is able to run for 20+ years and can show what long-term scenarios may develop from certain scenario configurations, such as high carbon and fuel prices. The generation companies invest in power plants based upon their understanding and expectations of market conditions now and in the future. They then sell the electricity generators on a day-ahead spot market. The model was run using a short term approach by only iterating through a single year (2018), composed of eight representative days, each of 24 time steps \cite{Kell2020}.
 
 ElecSim is made up of six components: 1) power plant data; 2) scenario data; 3) the time steps of the algorithm; 4) the power exchange; 5) the investment algorithm and 6) the generation companies (GenCos) as agents. For this paper, we ignore the investment algorithm, due to investments happening only once a year, and not in the first year of operation. 
 
@@ -277,12 +281,13 @@ The power exchange then must sort each of these bids per demand segment, from lo
 
 ElecSim uses a subset of representative days of electricity demand, solar irradiance and wind speed to approximate a full year. Representative days, in this context, are a subset of days which can closely approximate an entire year's electricity demand and weather patterns. By using a subset, we are able to reduce the computational time to run, whilst maintaining accuracy of modelling the real electricity market \cite{Kell2020}. We used eight representative days with an hourly granularity. This leads to 192 time-steps per year. If we did not use representative days, the simulation would consist of 365 days of 24 hour time-steps, leading to 8,760 time-steps. An increase of ${\sim}$45$\times$. A single simulation takes two minutes to run using eight representative days, which would increase to 90 minutes if representative days weren't used. This would significantly reduce the tractability of the problem, as 1,000s of simulation iterations would be required. A problem which currently took a week to run, would take 45 weeks to finalise, without a significant improvement in accuracy.
 
-Figure \ref{fig:model_details} shows how the six components interact. The electricity demand is matched with the supply of the power plants, owned by the generator companies (GenCos). We have configured ElecSim to model the UK electricity market, using the configuration file. Specifically, we model the actual GenCos with their respective power plants that were in operation in 2018.
+Figure \ref{fig:model_details} shows how the six components interact. The electricity demand is matched with the supply of the power plants, owned by the GenCos. We have configured ElecSim to model the UK electricity market, using the configuration file. Specifically, we model the actual GenCos with their respective power plants that were in operation in 2018.
 
 
 
 \begin{figure}
-    \includegraphics[width=0.49\textwidth]{figures/methedology/system-overview-v2}
+\centering
+    \includegraphics[width=0.45\textwidth]{figures/methedology/system-overview-v2}
     \caption{System overview of ElecSim \cite{Kell}.}
     \label{fig:model_details}
 \end{figure}
@@ -316,16 +321,16 @@ To parameterize the simulation, we use data from the United Kingdom in 2018. Thi
 
 \subsection{Reinforcement Learning Setup}
 
-Much of the data used by the algorithm was generated by the simulation and persisted in memory. With over 4,000,000 bids made by all of the power plants in each simulation run. Each bid had six different state data and a reward; leading to 28,000,000 data points per simulation. 1,000 simulation runs, therefore leads to $28\times 10^9$ data points used to train the reinforcement learning algorithm.
+Much of the data used by the algorithm was generated by the simulation and persisted in memory. With over 4,000,000 bids made by all of the power plants in each simulation run. Each bid had a state space size of six and a single reward; leading to 28,000,000 data points per simulation. 1,000 simulation runs, therefore leads to $28\times 10^9$ data points used to train the reinforcement learning algorithm.
 
-By modelling bidding decisions as a RL algorithm, we hope to observe the ability for RL to find the point at which market power artificially inflates electricity prices. To achieve this, we choose the six largest GenCos in the UK, as well as a smaller GenCo as a control. Groups of GenCos are modelled as a single GenCo with a single RL strategy for the purpose of this paper. Table \ref{table:genco_table} displays the groups of GenCos, as well as individual GenCos, with their respective capacity and number of plants.
-
-
+By modelling bidding decisions as a RL algorithm, we hope to observe the ability for RL to find the point at which market power artificially inflates electricity prices. To achieve this, we choose the six largest GenCos in the UK, as well as a smaller GenCo as a control. Groups of GenCos are modelled as a single GenCo with a single RL strategy for the purpose of this paper. These replace the case where bids are made based on the SRMC. Table \ref{table:genco_table} displays the groups of GenCos, as well as individual GenCos, with their respective capacity and number of plants.
 
 
+The only action of the RL agents is to make a bid for each of their power plants at each time-step. Over time, the RL algorithm learns an optimal bidding strategy for their power plants, to maximise the amount of money they receive from the market. It is posited that the dynamics of the market change with respect to the amount of electricity generation capacity owned by the RL agents. For example, RL agents which bid into a competitive market must bid the lowest price. However, RL agents which bid into an uncompetitive market can artificially increase the price they bid. 
 
 \begin{table*}
-\renewcommand{\arraystretch}{1.35}
+\footnotesize
+\renewcommand{\arraystretch}{1.15}
 \centering
 %\begin{tabular}{p{4.3cm}lllp{1.5cm}}
 \begin{tabular}{llllll}
@@ -351,12 +356,13 @@ EDF Energy                                                                      
 \end{table*}
 
 
-For the reinforcement learning problem we have the following tuple: $(s_t,a_t,r_t,s_{t+1})$, where $(s_t, s_{t+1})$ is the state at time $t$ and $t+1$ respectively, $a_t$ is the action at time $t$ and $r_t$ is the reward at time $t$. For our problem the state space is given by the tuple shown in Equation \ref{eq:observation_tuple}:
+
+For the reinforcement learning problem we have the following tuple: $(s_t,a_t,r_t,s_{t+1})$, where $(s_t, s_{t+1})$ is the state at time $t$ and $t+1$ respectively, $a_t$ is the action at time $t$, or the bid made into the market, and $r_t$ is the reward at time $t$. For our problem the state space, which are the observations given to the RL agents following each action, or bid, is given by the tuple shown in Equation \ref{eq:observation_tuple}. These observations allow the RL agents to learn how their bids should relate to this information about the market.
 \begin{equation}
 \label{eq:observation_tuple}
 	s_t=(H_i,D_i,p_{CO_{2}},p_{gas},p_{coal},p_{c}),
 \end{equation}
-\noindent where $H_i$ is the segment hour to bid into at timestep $i$, $D_i$ is the demand of the segment hour at timestep $t$, $p_{gas}$ is the price of gas, $p_{coal}$ the price of coal, $p_{CO_{2}}$ is the carbon tax price, and $p_{c}$ is the clearing price. We set the reward, $r_t$ to be the average electricity price of that time step, $p_{avg}$, as shown by Equation \ref{eq:reward}:
+\noindent where $H_i$ is the segment hour to bid into at timestep $i$, $D_i$ is the demand of the segment hour at timestep $t$, $p_{gas}$ is the price of gas, $p_{coal}$ the price of coal, $p_{CO_{2}}$ is the carbon tax price, and $p_{c}$ is the clearing price. We set the reward, $r_t$, to be the average electricity price of that time step, $p_{avg}$, as shown by Equation \ref{eq:reward}:
 
 \begin{equation}
 \label{eq:reward}
@@ -370,7 +376,7 @@ For the reinforcement learning problem we have the following tuple: $(s_t,a_t,r_
 	p_{avg}=\frac{\sum_{m=0}^{M}p_m}{M},
 \end{equation}
 
-\noindent where $p_m$ is the price for the $m$ load segment for the respective time step, and $M$ is the total load segments, which in our case is 20. 
+\noindent $p_m$ is the price for the $m$ load segment for the respective time step, and $M$ is the total load segments: 20. 
 
 This reward function allowed us to closely match the profit that would be made by the GenCo. For instance, if a bid was not accepted, the GenCo would receive \textsterling0. If the bid was accepted, however, the total money received would be proportional to the reward, giving the GenCo an incentive to learn the dynamics of the electricity market clearing process. 
 
@@ -389,7 +395,7 @@ For the action space, $a_t$, we modelled two scenarios, as shown by Equations \r
 \end{equation}
 
 
-\noindent where there was a price cap of \textsterling$600$/MWh for Equation \ref{eq:action-space-scen-1} and \textsterling$150$/MWh for Equation \ref{eq:action-space-scen-2}. Only two values were chosen to reduce computational load. We chose \textsterling$150$/MWh as a reasonable price cap that may be introduced by a Government. This was roughly double the average accepted price in 2018, therefore allowed for higher prices in times of high demand or low supply. The \textsterling 600/MWh was chosen to simulate an unbounded price cap. This enabled us to see the price that an equilibrium is reached within a market with agents with market power.  
+\noindent where there was a maximum bid allowed, or a price cap of \textsterling$600$/MWh for Equation \ref{eq:action-space-scen-1} and \textsterling$150$/MWh for Equation \ref{eq:action-space-scen-2}. Only two values were chosen to reduce computational load. We chose \textsterling$150$/MWh as a reasonable price cap that may be introduced by a Government. This was roughly double the average accepted price in 2018, therefore allowed for higher prices in times of high demand or low supply. The \textsterling 600/MWh was chosen to simulate an unbounded price cap. This enabled us to see the price that an equilibrium is reached within a market with agents with market power.  
 
 
 
@@ -410,26 +416,24 @@ In this work, we assume that the GenCo groups have no information about the gene
 Note that in the model, the GenCo does not take any strategic action, that is, the GenCo is oblivious to the actions of other GenCos explicitly in its decision process. In fact, it does not have information on other GenCos. The GenCo is modelled as a simple agent that learns only from its own experience. GenCos' collective behaviour, however, may lead to strategic outcomes.\cite{EsmaeiliAliabadi2017}\\
 
 
-
-
 \section{Results}
 \label{sec:results}
 
 In this section, we detail the results of the RL algorithm, and the effect that capacity has on average electricity price within the UK. Our approach could be generalised to any other decentralised electricity market in other countries. 
 
-Figures \ref{fig:unbounded_timesteps} and \ref{fig:bounded_timesteps} show the rewards over a number of time steps for the unbounded and bounded cases respectively. Figure \ref{fig:unbounded_timesteps} shows a clear difference between agents which use the DDPG RL strategy and have a large capacity (green and yellow) compared to those which have a smaller capacity (dark purple). The axis in Figure \ref{fig:unbounded_timesteps} are much larger than those of \ref{fig:bounded_timesteps}, highlighting the effect of market power on an unbounded market.
+Figures \ref{fig:unbounded_timesteps} and \ref{fig:bounded_timesteps} show the rewards over a number of time steps for the unbounded and bounded cases respectively. Figure \ref{fig:unbounded_timesteps} shows a clear difference between agents which use the DDPG RL strategy and have a large capacity (green and yellow) compared to those which have a smaller capacity (dark purple). The axis in Figure \ref{fig:unbounded_timesteps} are much larger than those of \ref{fig:bounded_timesteps}, highlighting the effect of market power.
 
 
 \begin{figure}
 	\centering
-    \includegraphics[width=0.49\textwidth]{figures/results/unbounded_results.pdf}
+    \includegraphics[width=0.45\textwidth]{figures/results/unbounded_results.pdf}
     \caption{Reward over time for different groups of GenCos, max bid = \textsterling $600$/MWh.}
     \label{fig:unbounded_timesteps}
 \end{figure}
 
 \begin{figure}
 	\centering
-    \includegraphics[width=0.49\textwidth]{figures/results/bounded_results.pdf}
+    \includegraphics[width=0.45\textwidth]{figures/results/bounded_results.pdf}
     \caption{Reward over time for different groups of GenCos, max bid = \textsterling $150$/MWh.}
     \label{fig:bounded_timesteps}
 \end{figure}
@@ -446,7 +450,7 @@ Figure \ref{fig:unbounded_results_scatter} displays the capacity controlled by t
 
 \begin{figure}[]
 	\centering
-    \includegraphics[width=0.49\textwidth]{figures/results/unbounded_results_scatter.pdf}
+    \includegraphics[width=0.45\textwidth]{figures/results/unbounded_results_scatter.pdf}
     \caption{Capacity of agents using RL vs. average electricity price accepted, for unbounded agents.}
     \label{fig:unbounded_results_scatter}
 \end{figure}
@@ -455,13 +459,13 @@ Figure \ref{fig:unbounded_results_scatter} displays the capacity controlled by t
 Figure \ref{fig:bounded_timesteps} shows a cluster between ${\sim}$\textsterling$60$/MWh and ${\sim}$\textsterling$80$/MWh irrespective of the capacity of the agents. This is verified by Figure \ref{fig:bounded_results_scatter}. This seems to suggest that setting a lower market cap reduces the ability for generators, irrespective of size, from influencing the electricity price.
 
 
-
+It is noted that in the competitive market scenarios, the electricity price is close to the actual electricity price in the UK. Therefore, we can have confidence in the behaviour of our model and the RL strategy.
 
 
 
 \begin{figure}
 	\centering
-    \includegraphics[width=0.49\textwidth]{figures/results/bounded_results_scatter.pdf}
+    \includegraphics[width=0.45\textwidth]{figures/results/bounded_results_scatter.pdf}
     \caption{Capacity of agents using RL vs. average electricity price accepted, for bounded agents.}
     \label{fig:bounded_results_scatter}
 \end{figure}
@@ -487,7 +491,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 \begin{figure}
 \centering
 %\vskip\baselineskip
-\begin{subfigure}[b]{0.49\textwidth}   
+\begin{subfigure}[b]{0.45\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/large_company_capped_600_bids.png}
 \caption{Largest group of GenCos with a total controlled capacity of 46,929.2MW with a market cap of \textsterling600/MWh.}
 \label{fig:large_company_capped_600_bids}
@@ -495,7 +499,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 %\quad
 %\medskip
 \hfil
-\begin{subfigure}[b]{0.49\textwidth}   
+\begin{subfigure}[b]{0.45\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/small_company_capped_600_bids.png}
 \caption{Smallest company with a total controlled capacity of 2,738.7MW with a market cap of \textsterling600/MWh.}
 \label{fig:small_company_capped_600_bids}
@@ -510,7 +514,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 \begin{figure}
 \centering
 %\vskip\baselineskip
-\begin{subfigure}[b]{0.49\textwidth}   
+\begin{subfigure}[b]{0.45\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/large_company_capped_150_bids.png}
 \caption{Largest group of GenCos with a total controlled capacity of 46,929.2MW with a market cap of \textsterling150/MWh.}
 \label{fig:large_company_capped_150_bids}
@@ -518,7 +522,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 %\quad
 %\medskip
 \hfil
-\begin{subfigure}[b]{0.49\textwidth}   
+\begin{subfigure}[b]{0.45\textwidth}   
 \includegraphics[width=\columnwidth]{figures/results/small_company_capped_150_bids.png}
 \caption{Smallest company with a total controlled capacity of 2,738.7MW with a market cap of \textsterling150/MWh.}
 \label{fig:small_company_capped_150_bids}
@@ -531,14 +535,15 @@ Figure \ref{fig:ecdf_all} displays an empirical cumulative distribution function
 
 \begin{figure}
 	\centering
-    \includegraphics[width=0.49\textwidth]{figures/results/ecdf_all.png}
+    \includegraphics[width=0.45\textwidth]{figures/results/ecdf_all.png}
     \caption{Empirical cumulative distribution function comparing the likelihood of each bid for the different sized GenCos and market cap.}
     \label{fig:ecdf_all}
 \end{figure}
 
 We ran a sensitivity analysis to observe the effects of the market cap on final average accepted bid price. The largest GenCo group used a strategy for this sensitivity analysis. Figure \ref{fig:sensitivity_analysis} displays the results. It seems that whilst the average accepted bid price increased with the capped bid level; there is a significant increase after a market cap of \textsterling190/MWh. This may be due to the case that the GenCos begin to outbid the SRMC bidding GenCos at this price point.
 \begin{figure}
-    \includegraphics[width=0.49\textwidth]{figures/results/sensitivity_analysis.png}
+\centering
+    \includegraphics[width=0.45\textwidth]{figures/results/sensitivity_analysis.png}
     \caption{Capacity of agents using RL vs. average electricity price accepted, for bounded agents.}
     \label{fig:sensitivity_analysis}
 \end{figure}
@@ -576,6 +581,8 @@ We found through a sensitivity analysis, that the average electricity price in t
 
 The bidding strategies of the GenCos which used the reinforcement learning algorithm was to bid both the maximum and minimum price possible. However, this was only in the case of GenCos, or groups of GenCos, which have a large controlled capacity without a market cap. If the strategically bidding GenCo had a relatively smaller capacity, then a market cap had a great effect on ensuring that these GenCos bid close to their short-run marginal cost. 
 
+We show that in the competitive market case, our RL agents bid a price similar to the average electricity price in the UK. This gives us confidence in the strategy of the RL algorithm. 
+
 Our work has shown the ability for reinforcement learning to learn an optimal bidding strategy to maximize a GenCo's profit within an electricity market. The ability for GenCos to use their market power is also highlighted, and is dependent on electricity generation capacity of the respective GenCo.
 
 
@@ -583,7 +590,7 @@ Our work has shown the ability for reinforcement learning to learn an optimal bi
 The information presented here can be used by governments of liberalised electricity markets to ensure fair competition between generator GenCos. For instance, governments could ensure a wide range of participants have an equally distributed proportion of generation capacity. If this is not possible within such a market, it is possible for the introduction of market caps to limit the impact that a few large GenCos have on the market. Whilst the numbers presented in this work may not be directly translatable to other markets, the methodology presented here is generalisable.
 
 
-In future work, we would like to enable GenCos to withhold the capacity on offer to the electricity market. This would enable further market power by reducing competition further.  Additionally, we would like to assess the market power in different countries with different market structures and total electricity supply.
+In future work, we would like to enable GenCos to withhold the capacity on offer to the electricity market. This would enable further market power by reducing competition further.  Additionally, we would like to assess the market power in different countries with different market structures and total electricity supply. In addition, we would like to run the full long-term model by using parallel computing, to see the long-term effect of market power on the market. 
 
 %- Future work (withold capacity)
 
