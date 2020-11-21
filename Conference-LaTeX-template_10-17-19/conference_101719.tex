@@ -1,5 +1,5 @@
 \documentclass[conference]{IEEEtran}
-\IEEEoverridecommandlockouts
+%\IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
@@ -18,7 +18,7 @@
 \begin{document}
 
 \title{Exploring market power using deep reinforcement learning for intelligent bidding strategies
-\thanks{EPSRC}
+%\thanks{EPSRC}
 }
 
 \author{\IEEEauthorblockN{Alexander J. M. Kell\textsuperscript{\textsection}}
@@ -30,7 +30,7 @@ a.kell@imperial.ac.uk}
 \IEEEauthorblockN{Matthew Forshaw, A. Stephen McGough}
 \IEEEauthorblockA{\textit{School of Computing} \\
 \textit{Newcastle University}\\
-Newcastle \\
+Newcastle upon Tyne, UK\\
 \{matthew.forshaw, stephen.mcgough\}@newcastle.ac.uk}
 }
 %\and
@@ -492,7 +492,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 \centering
 %\vskip\baselineskip
 \begin{subfigure}[b]{0.45\textwidth}   
-\includegraphics[width=\columnwidth]{figures/results/large_company_capped_600_bids.png}
+\includegraphics[width=\columnwidth]{figures/results/large_company_capped_600_bids.pdf}
 \caption{Largest group of GenCos with a total controlled capacity of 46,929.2MW with a market cap of \textsterling600/MWh.}
 \label{fig:large_company_capped_600_bids}
 \end{subfigure}
@@ -500,7 +500,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 %\medskip
 \hfil
 \begin{subfigure}[b]{0.45\textwidth}   
-\includegraphics[width=\columnwidth]{figures/results/small_company_capped_600_bids.png}
+\includegraphics[width=\columnwidth]{figures/results/small_company_capped_600_bids.pdf}
 \caption{Smallest company with a total controlled capacity of 2,738.7MW with a market cap of \textsterling600/MWh.}
 \label{fig:small_company_capped_600_bids}
 \end{subfigure}
@@ -515,7 +515,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 \centering
 %\vskip\baselineskip
 \begin{subfigure}[b]{0.45\textwidth}   
-\includegraphics[width=\columnwidth]{figures/results/large_company_capped_150_bids.png}
+\includegraphics[width=\columnwidth]{figures/results/large_company_capped_150_bids.pdf}
 \caption{Largest group of GenCos with a total controlled capacity of 46,929.2MW with a market cap of \textsterling150/MWh.}
 \label{fig:large_company_capped_150_bids}
 \end{subfigure}
@@ -523,7 +523,7 @@ Figure \ref{fig:small_company_capped_150_bids} displays the strategy of the smal
 %\medskip
 \hfil
 \begin{subfigure}[b]{0.45\textwidth}   
-\includegraphics[width=\columnwidth]{figures/results/small_company_capped_150_bids.png}
+\includegraphics[width=\columnwidth]{figures/results/small_company_capped_150_bids.pdf}
 \caption{Smallest company with a total controlled capacity of 2,738.7MW with a market cap of \textsterling150/MWh.}
 \label{fig:small_company_capped_150_bids}
 \end{subfigure}
@@ -535,7 +535,7 @@ Figure \ref{fig:ecdf_all} displays an empirical cumulative distribution function
 
 \begin{figure}
 	\centering
-    \includegraphics[width=0.45\textwidth]{figures/results/ecdf_all.png}
+    \includegraphics[width=0.45\textwidth]{figures/results/ecdf_all.pdf}
     \caption{Empirical cumulative distribution function comparing the likelihood of each bid for the different sized GenCos and market cap.}
     \label{fig:ecdf_all}
 \end{figure}
@@ -543,7 +543,7 @@ Figure \ref{fig:ecdf_all} displays an empirical cumulative distribution function
 We ran a sensitivity analysis to observe the effects of the market cap on final average accepted bid price. The largest GenCo group used a strategy for this sensitivity analysis. Figure \ref{fig:sensitivity_analysis} displays the results. It seems that whilst the average accepted bid price increased with the capped bid level; there is a significant increase after a market cap of \textsterling190/MWh. This may be due to the case that the GenCos begin to outbid the SRMC bidding GenCos at this price point.
 \begin{figure}
 \centering
-    \includegraphics[width=0.45\textwidth]{figures/results/sensitivity_analysis.png}
+    \includegraphics[width=0.45\textwidth]{figures/results/sensitivity_analysis.pdf}
     \caption{Capacity of agents using RL vs. average electricity price accepted, for bounded agents.}
     \label{fig:sensitivity_analysis}
 \end{figure}

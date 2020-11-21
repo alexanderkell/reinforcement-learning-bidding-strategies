@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.22)  14 NOV 2020 15:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.22)  20 NOV 2020 16:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -102,9 +102,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \IEEEPARstartletwidth=\dimen157
 \c@IEEEbiography=\count181
 \@IEEEtranrubishbin=\box46
-)
-** ATTENTION: Overriding command lockouts (line 2).
-(/usr/local/texlive/2020/texmf-dist/tex/latex/cite/cite.sty
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
@@ -570,38 +568,38 @@ File: figures/results/bounded_results_scatter.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/results/bounded_results_scatter.pdf  used on input line 468.
 (pdftex.def)             Requested size: 232.19843pt x 154.61742pt.
 [7 <./figures/results/unbounded_results.pdf> <./figures/results/bounded_results.pdf> <./figures/results/unbounded_results_scatter.pdf>]
-<figures/results/large_company_capped_600_bids.png, id=80, 11855.29124pt x 7903.5275pt>
-File: figures/results/large_company_capped_600_bids.png Graphic file (type png)
-<use figures/results/large_company_capped_600_bids.png>
-Package pdftex.def Info: figures/results/large_company_capped_600_bids.png  used on input line 495.
-(pdftex.def)             Requested size: 232.19843pt x 154.72719pt.
-<figures/results/small_company_capped_600_bids.png, id=82, 11855.29124pt x 7903.5275pt>
-File: figures/results/small_company_capped_600_bids.png Graphic file (type png)
-<use figures/results/small_company_capped_600_bids.png>
-Package pdftex.def Info: figures/results/small_company_capped_600_bids.png  used on input line 503.
-(pdftex.def)             Requested size: 232.19843pt x 154.72719pt.
-<figures/results/large_company_capped_150_bids.png, id=83, 11855.29124pt x 7903.5275pt>
-File: figures/results/large_company_capped_150_bids.png Graphic file (type png)
-<use figures/results/large_company_capped_150_bids.png>
-Package pdftex.def Info: figures/results/large_company_capped_150_bids.png  used on input line 518.
-(pdftex.def)             Requested size: 232.19843pt x 154.72719pt.
-<figures/results/small_company_capped_150_bids.png, id=84, 11855.29124pt x 7903.5275pt>
-File: figures/results/small_company_capped_150_bids.png Graphic file (type png)
-<use figures/results/small_company_capped_150_bids.png>
-Package pdftex.def Info: figures/results/small_company_capped_150_bids.png  used on input line 526.
-(pdftex.def)             Requested size: 232.19843pt x 154.72719pt.
- [8 <./figures/results/bounded_results_scatter.pdf> <./figures/results/large_company_capped_600_bids.png> <./figures/results/small_company_capped_600_bids.png>]
-<figures/results/ecdf_all.png, id=97, 11855.29124pt x 7903.5275pt>
-File: figures/results/ecdf_all.png Graphic file (type png)
-<use figures/results/ecdf_all.png>
-Package pdftex.def Info: figures/results/ecdf_all.png  used on input line 538.
-(pdftex.def)             Requested size: 232.19843pt x 154.72719pt.
-<figures/results/sensitivity_analysis.png, id=98, 11855.29124pt x 7903.5275pt>
-File: figures/results/sensitivity_analysis.png Graphic file (type png)
-<use figures/results/sensitivity_analysis.png>
-Package pdftex.def Info: figures/results/sensitivity_analysis.png  used on input line 546.
-(pdftex.def)             Requested size: 232.19843pt x 154.72719pt.
- [9 <./figures/results/large_company_capped_150_bids.png> <./figures/results/small_company_capped_150_bids.png> <./figures/results/ecdf_all.png> <./figures/results/sensitivity_analysis.png>] (./conference_101719.bbl
+<figures/results/large_company_capped_600_bids.pdf, id=80, 853.1875pt x 568.1225pt>
+File: figures/results/large_company_capped_600_bids.pdf Graphic file (type pdf)
+<use figures/results/large_company_capped_600_bids.pdf>
+Package pdftex.def Info: figures/results/large_company_capped_600_bids.pdf  used on input line 495.
+(pdftex.def)             Requested size: 232.19843pt x 154.61742pt.
+<figures/results/small_company_capped_600_bids.pdf, id=81, 853.1875pt x 568.1225pt>
+File: figures/results/small_company_capped_600_bids.pdf Graphic file (type pdf)
+<use figures/results/small_company_capped_600_bids.pdf>
+Package pdftex.def Info: figures/results/small_company_capped_600_bids.pdf  used on input line 503.
+(pdftex.def)             Requested size: 232.19843pt x 154.61742pt.
+<figures/results/large_company_capped_150_bids.pdf, id=82, 853.1875pt x 568.1225pt>
+File: figures/results/large_company_capped_150_bids.pdf Graphic file (type pdf)
+<use figures/results/large_company_capped_150_bids.pdf>
+Package pdftex.def Info: figures/results/large_company_capped_150_bids.pdf  used on input line 518.
+(pdftex.def)             Requested size: 232.19843pt x 154.61742pt.
+<figures/results/small_company_capped_150_bids.pdf, id=83, 853.1875pt x 568.1225pt>
+File: figures/results/small_company_capped_150_bids.pdf Graphic file (type pdf)
+<use figures/results/small_company_capped_150_bids.pdf>
+Package pdftex.def Info: figures/results/small_company_capped_150_bids.pdf  used on input line 526.
+(pdftex.def)             Requested size: 232.19843pt x 154.61742pt.
+ [8 <./figures/results/bounded_results_scatter.pdf> <./figures/results/large_company_capped_600_bids.pdf> <./figures/results/small_company_capped_600_bids.pdf>]
+<figures/results/ecdf_all.pdf, id=104, 853.1875pt x 568.1225pt>
+File: figures/results/ecdf_all.pdf Graphic file (type pdf)
+<use figures/results/ecdf_all.pdf>
+Package pdftex.def Info: figures/results/ecdf_all.pdf  used on input line 538.
+(pdftex.def)             Requested size: 232.19843pt x 154.61742pt.
+<figures/results/sensitivity_analysis.pdf, id=105, 853.1875pt x 568.1225pt>
+File: figures/results/sensitivity_analysis.pdf Graphic file (type pdf)
+<use figures/results/sensitivity_analysis.pdf>
+Package pdftex.def Info: figures/results/sensitivity_analysis.pdf  used on input line 546.
+(pdftex.def)             Requested size: 232.19843pt x 154.61742pt.
+ [9 <./figures/results/large_company_capped_150_bids.pdf> <./figures/results/small_company_capped_150_bids.pdf> <./figures/results/ecdf_all.pdf> <./figures/results/sensitivity_analysis.pdf>] (./conference_101719.bbl
 Underfull \hbox (badness 1354) in paragraph at lines 92--95
 []\OT1/ptm/m/n/8 G. Bertrand and A. Pa-pavasil-iou, ``Reinforcement-Learning Based
  []
@@ -621,17 +619,17 @@ Before submitting the final camera ready copy, remember to:
 [10] (./conference_101719.aux) ) 
 Here is how much of TeX's memory you used:
  7725 strings out of 480608
- 128658 string characters out of 5903630
- 384795 words of memory out of 5000000
+ 128802 string characters out of 5903630
+ 385309 words of memory out of 5000000
  23470 multiletter control sequences out of 15000+600000
  579146 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,15n,48p,1191b,597s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on conference_101719.pdf (10 pages, 5829260 bytes).
+Output written on conference_101719.pdf (10 pages, 538540 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
+ 217 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
